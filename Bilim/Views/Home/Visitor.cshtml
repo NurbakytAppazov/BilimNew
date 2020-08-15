@@ -1,0 +1,259 @@
+﻿@model IEnumerable<Bilim.DbFolder.Kurs>
+
+@{
+    ViewData["Title"] = "Visitor";
+}
+<link href="~/css/index.css" rel="stylesheet">
+<link href="~/css/slider.css" rel="stylesheet">
+
+<div class="swipe-menu">
+    <div class="close">
+        <span></span>
+        <!-- <i class="fa fa-close"></i> -->
+    </div>
+    <a href="#" class="main-nav fix-active">Басты бет</a>
+    <a href="#" class="about-nav">Біз жайлы</a>
+    <a href="#" class="course-nav">Курстар</a>
+    <a href="#" class="more-nav">Қосымша</a>
+    <a href="/Account/Profil" class="swipe-login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+    </a>
+</div>
+<div class="header">
+    <div class="logo">
+        <img src="~/img/logo.png" alt="BilimOnline">
+        <!-- Bilim Online -->
+    </div>
+    <div class="nav">
+        <a href="#" class="main-nav fix-active">Басты бет</a>
+        <a href="#" class="about-nav">Біз жайлы</a>
+        <a href="#" class="course-nav">Курстар</a>
+        <a href="#" class="more-nav">Қосымша</a>
+    </div>
+    <a href="/Account/Profil" class="login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+    </a>
+    <div class="burger">
+        <span></span>
+        <!-- <i class="fa fa-bars"></i> -->
+        <!-- <i class="fa fa-close"></i> -->
+    </div>
+</div>
+<div class="content">
+    <div id="main" class="main">
+        <div class="slider" id="slider">
+            <div class="slItems">
+                <div class="slItem">
+                    <div class="main-text">
+                        <h1>Школа <br> макияжа</h1>
+                        <p>Профессиональные make-up курсы от 3990 руб</p>
+                        <span class="select-btn">Выбрать курс</span>
+                    </div>
+                    <div class="main-bg" style="background-image: url(/img/main-bg.png);"></div>
+                </div>
+                <div class="slItem">
+                    <div class="main-text">
+                        <h1>Школа <br> макияжа</h1>
+                        <p>Профессиональные make-up курсы от 3990 руб</p>
+                        <span class="select-btn">Выбрать курс</span>
+                    </div>
+                    <div class="main-bg" style="background-image: url(/img/main-bg.png);"></div>
+                </div>
+                <div class="slItem">
+                    <div class="main-text">
+                        <h1>Школа <br> макияжа</h1>
+                        <p>Профессиональные make-up курсы от 3990 руб</p>
+                        <span class="select-btn">Выбрать курс</span>
+                    </div>
+                    <div class="main-bg" style="background-image: url(/img/main-bg.png);"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="about" class="about">
+        <div class="about-text">
+            <h2></h2>
+            <p>
+                Қазақстандағы тұңғыш онлайн университет.
+                Ең алғашқы бір жылдық онлайн-курсымыз стресстен,
+                уайым мен шаршаудан арылу, дұрыс мақсат қою және армандау,
+                жан тыныштығы (медитация), үйренуді үйрену, маркетинг,
+                жеке бренд қалыптастыру, оффлайн-коммуникация сияқты тақырыптарға арналды.
+            </p>
+        </div>
+        <div class="about-img">
+            <img src="~/img/about-img.jpg" alt="">
+        </div>
+    </div>
+    <div class="school">
+        <div class="school-block">
+            <div class="school-img">
+                <img src="~/img/lena1.png">
+            </div>
+            <div class="school-text">
+                <span>,,</span>
+                <p>В моей онлайн-школе собран весь опыт и знания за 7 лет практики.</p>
+                <p>Вы найдете здесь не только новые знания, но и заряд волшебного вдохновения!</p>
+            </div>
+        </div>
+        <div class="school-bottom">
+            <div class="bottom-block">
+                <span class="circle">
+                    <span class="circle-number">
+                        2 958
+                    </span>
+                </span>
+                <p>учеников прошли мои программы обучения</p>
+            </div>
+            <div class="bottom-block">
+                <span class="circle">
+                    <span class="circle-number">
+                        17 700 000
+                    </span>
+                </span>
+                <p>просмотров обучающих видео на YouTube</p>
+            </div>
+            <div class="bottom-block">
+                <span class="circle">
+                    <span class="circle-number">
+                        54
+                    </span>
+                </span>
+                <p>в нашей школе учатся ученики из 54 стран</p>
+            </div>
+            <div class="bottom-block">
+                <span class="circle">
+                    <span class="circle-number">
+                        348 000
+                    </span>
+                </span>
+                <p>подписчиков в Instagram и YouTube</p>
+            </div>
+        </div>
+    </div>
+    <div class="about-bottom">
+        <span class="why">Неге бізбен тиімді?</span>
+        <h2><span>Bilim ONLINE</span> артықшылықтары</h2>
+        <!-- Bilim Online -->
+        <div class="about-list-block">
+            <div class="about-list">
+                <div>
+                    <img src="~/img/icon6/111.svg">
+                    <span>Удобная платформа для занятий онлайн</span>
+                </div>
+                <div>
+                    <img src="~/img/icon6/222.svg">
+                    <span>Авторы курсов — ТОП-эксперты России и мира</span>
+                </div>
+                <div>
+                    <img src="~/img/icon6/333.svg">
+                    <span>Возможность заниматься по курсам в любом <br> месте в любое время (нужен только Интернет)</span>
+                </div>
+            </div>
+            <div class="about-list">
+                <div>
+                    <img src="~/img/icon6/444.svg">
+                    <span>Поддержка экспертов 24/7</span>
+                </div>
+                <div>
+                    <img src="~/img/icon6/555.svg">
+                    <span>Поэтапное прохождение курса</span>
+                </div>
+                <div>
+                    <img src="~/img/icon6/666.svg">
+                    <span>Домашние задания для контроля эффективности занятий</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="courses" class="courses">
+        <h2>Біздің курстар</h2>
+        <div class="course-items">
+            @foreach (var c in Model)
+            {
+                <div class="course-item">
+                    <div class="course-img">
+                        <img src="~/kurs/@c.PhotoUrl">
+                    </div>
+                    <div class="course-text">
+                        <h2>@c.Name</h2>
+                        <p><i class="fa fa-user"></i>@c.AvtorName</p>
+                        <span>@c.Info</span>
+                        <a href="/Home/Kurs">Курс жайлы толығырақ</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script src="~/js/slider.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.burger').hover(function () {
+            $('.swipe-menu').toggleClass('active-menu')
+        })
+        $('.close').click(function () {
+            $('.swipe-menu').removeClass('active-menu')
+        })
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > 90) {
+                $('.header').addClass('fix-header');
+            } else {
+                $('.header').removeClass('fix-header');
+            }
+        });
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() >= $('#main').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.main-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#about').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.about-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#courses').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.course-nav').addClass('fix-active');
+            }
+        });
+        $('.main-nav').click(function () {
+            var offset = 0;
+            $('a.fix-active').removeClass('fix-active');
+            $('.main-nav').addClass('fix-active');
+            $('html, body').animate({
+                scrollTop: $('#main').offset().top
+            }, 1000);
+            return false;
+        });
+        $('.about-nav').click(function () {
+            var offset = 0;
+            $('a.fix-active').removeClass('fix-active');
+            $('.about-nav').addClass('fix-active');
+            $('html, body').animate({
+                scrollTop: $('#about').offset().top
+            }, 1000);
+            return false;
+        });
+        $('.course-nav, .select-btn').click(function () {
+            var offset = 0;
+            $('a.fix-active').removeClass('fix-active');
+            $('.course-nav').addClass('fix-active');
+            $('html, body').animate({
+                scrollTop: $('#courses').offset().top
+            }, 1000);
+            return false;
+        });
+
+        $(function () {
+            $('.slider').rbtSlider({
+                'height': '100%',
+                'dots': true,
+                'arrows': false,
+                'auto': true,
+            });
+        });
+    });
+</script>

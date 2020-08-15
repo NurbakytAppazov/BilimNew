@@ -1,0 +1,43 @@
+﻿@model Bilim.DbFolder.KursVideo
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "Video";
+}
+<link href="~/css/video.css" rel="stylesheet">
+
+
+
+<div class="content">
+    <div class="main">
+        <div class="video-block">
+            <div class="video">
+                <!--<iframe src="https://player.vimeo.com/video/432060648" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>-->
+                <iframe src="@Model.VideoUrl" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
+            <div class="video-text">
+                <p>@Model.Kurs.AvtorName</p>
+                <h1>@Model.VideoName</h1>
+                <p><i class="fa fa-eye"></i>1634</p>
+                <p>26.07.2020</p>
+                <p>
+                    @Model.Info
+                </p>
+            </div>
+        </div>
+        <div class="video-titles">
+            @foreach (var c in ViewBag.OtherVideos)
+            {
+                <a href="/Account/Video/@c.Kurs.Id?videoId=@c.Id" class="video-title">
+                    <div class="baner">
+                        <img src="~/kursvideo/@c.PhotoUrl">
+                    </div>
+                    <div class="title-text">
+                        <h3>@c.VideoName</h3>
+                        <p>@c.Info</p>
+                        <span><i class="fa fa-eye"></i> 1634</span>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,374 @@
+
+:root {
+    --main-color: #392d8a;
+    --white-color: #fff;
+    --brown-color: #8003a8;
+    --grey-color: #968c88;
+    --pink-color: #f6f7f8;
+    --red-color: #bb6054;
+}
+@font-face{
+   font-family: MyOpenSans;
+   src: url('OpenSans-Regular.ttf');
+}
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   color: var(--main-color);
+   font-family: MyOpenSans, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+   font-size: 16px;
+}
+.wrap{
+   width: 100%;
+   background-color: #fff;
+   user-select: none;
+   position: relative;
+   background-color: var(--white-color);
+}
+.header, .content > *, .footer {
+   padding: 0 10%;
+}
+ /* --------------HEADER------------ */
+
+.header {
+   width: 100%;
+   height: 70px;
+   position: absolute;
+   top: 0;
+   z-index: 11;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.fix-header{
+   position: fixed;
+   top: 0;
+   z-index: 100;
+   background-color: var(--main-color);
+   box-shadow: 0 1px 10px var(--main-color);
+   transition: 0.3s;
+}
+.fix-header > .logo > img{
+   filter: invert(100);
+}
+.fix-header > .nav > a, .fix-header > .go-back > *{
+   color: #fff;
+}
+.fix-header > .nav > a:hover, .fix-header > .go-back > a:hover{
+   color: var(--pink-color);
+}
+.fix-header > .nav > a::before{
+   background-color: var(--pink-color);
+}
+.fix-header > .login > *{
+   color: #fff;
+}
+.logo{
+   width: 175px;
+}
+.logo > img{
+   width: 100%;
+}
+.go-back{
+   display: flex;
+   align-items: center;
+}
+.nav > a, .go-back > a{
+   text-decoration: none;
+   margin: 0 10px;
+   padding: 5px;
+   transition: 0.3s;
+   position: relative;
+}
+.go-back > a{
+   margin: 0;
+   font-weight: bold;
+   /* font-size: 20px; */
+}
+.nav > a:hover{
+   color: var(--brown-color);
+}
+.nav > a:before{
+   content: "";
+   display: block;
+   width: 0;
+   height: 2px;
+   position: absolute;
+   bottom: 0;
+   right: 5%;
+   background-color: var(--brown-color);
+   transition: 0.3s;
+}
+.nav > a:hover:before{
+   width: 90%;
+   left: 5%;
+}
+.fix-active::before{
+   width: 90% !important;
+   left: 5%;
+}
+.login{
+   text-decoration: none;
+}
+.login:hover > span{
+   transition: 0.3s;
+   color: var(--brown-color);
+}
+
+/* ---------MOB-MENU------- */
+.swipe-menu{
+   width: 100vw;
+   display: flex;
+   flex-direction: column;
+   padding: 70px 7%;
+   position: fixed;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   z-index: 1000;
+   background-color: transparent;
+   transform: translateX(100vw);
+   /* transform: translateX(0); */
+   transition: 0.3s transform, 0.5s background-color;
+}
+.active-menu{
+   transform: translateX(0);
+   background-color: var(--main-color);
+}
+.swipe-menu > a{
+   color: var(--white-color);
+   text-decoration: none;
+   padding: 10px 0;
+}
+.swipe-login > *{
+   font-size: 16px;
+   color: var(--white-color);
+}
+.close{
+   /* display: none; */
+   position: absolute !important;
+   right: 7%;
+   top: 25px;
+}
+.swipe-menu, .burger{
+   display: none;
+}
+/* .burger,
+.close{
+   padding: 7px;
+   margin-right: -7px;
+} */
+/* .burger > i, .close > i{
+   font-size: 22px;
+} */
+.burger, .close{
+   width: 25px;
+   height: 20px;
+   position: relative;
+}
+.burger > span, .burger > span::after, .burger > span::before,
+.close > span, .close > span::after{
+   width: 100%;
+   height: 2px;
+   content: "";
+   position: absolute;
+   right: 0;
+   background-color: var(--main-color);
+   transition: 0.2s;
+}
+.burger > span{
+   top: 0;
+}
+.burger > span::before{
+   width: 75%;
+   top: 8px;
+}
+.burger > span::after{
+   width: 50%;
+   top: 16px;
+}
+.burger:hover > ::after,.burger:hover > ::before{
+   width: 100%;
+}
+.close > span, .close > span::after{
+   top: 50%;
+   margin-top: -1px;
+}
+.close > span{
+   transform: rotateZ(45deg);
+}.close > span::after{
+   transform: rotateZ(90deg);
+}
+
+/* .fix-header > .burger > i, .close > i, */
+.close > span, .close > span::after,
+.fix-header > .burger > span, .fix-header > .burger > span::after, .fix-header > .burger > span::before{
+   /* color: var(--white-color); */
+   background-color: var(--white-color) !important;
+   /* z-index: 1000; */
+}
+/* ------------------- */
+
+.footer{
+   width: 100%;
+   padding-top: 50px;
+   padding-bottom: 50px;
+   background-color: var(--white-color);
+}
+.footer-items{
+   width: 100%;
+   display: flex;
+   justify-content: space-between;
+}
+.footer-items > *{
+   display: flex;
+   flex-direction: column;
+}
+
+/* -----fLeft----- */
+.fleft{
+   width: 25%;
+}
+.contact, .contact-phone{
+   display: flex;
+   align-items: center;
+}
+.contact > *{
+   margin-bottom: 7px;
+}
+.contact > i{
+   font-size: 45px;
+}
+.contact-phone{
+   display: flex;
+   flex-direction: column;
+   margin-left: 10px;
+}
+.contact-phone > a{
+   font-size: 14px;
+   text-decoration: none;
+}
+.contact-phone > a:hover{
+   text-decoration: underline;
+}
+.social > a{
+   text-decoration: none;
+   text-align: center;
+   margin-right: 5px;
+   transition: 0.3s;
+}
+.social > a i{
+   width: 32px;
+   height: 32px;
+   line-height: 32px;
+   font-size: 18px;
+   background: transparent;
+   color: var(--grey-color);
+   border: 1px solid var(--grey-color);
+   border-radius: 50%;
+   transition: 0.3s;
+}
+.social > a:hover i{
+   color: var(--white-color);
+}
+.social > a:first-child:hover i{
+   border-color: #24ce61;
+   background-color: #24ce61;
+}
+.social > a:last-child:hover i{
+   border-color: #fdf497;
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+}
+
+/* -----fCenter----- */
+.fcenter{
+   width: 33%;
+}
+.fcenter > h3{
+   font-size: 18px;
+   margin-bottom: 7px;
+}
+.fcenter > span{
+   font-size: 14px;
+   margin-bottom: 2px;
+}
+
+/* -----fRight----- */
+
+.fright > a{
+   font-size: 14px;
+   margin-bottom: 2px;
+}
+.fright > a:hover{
+   text-decoration: none;
+}
+
+.copyright{
+   margin-top: 50px;
+   font-size: 13px;
+   text-align: center;
+}
+
+
+/* –––––––––––MEDIA–––––––––––– */
+
+@media  (max-width: 1024px){
+   .header, .content > *, .footer {
+      padding: 0 7%;
+   }
+}
+@media  (max-width: 768px){
+   .logo{
+      width: 160px;
+   }
+   .nav > a{
+      font-size: 14px;
+      margin: 0 5px;
+   }
+   .nav > a::before{
+      height: 1px;
+   }
+   .login > span{
+      display: none;
+   }
+   .login > i{
+      font-size: 18px;
+   }
+   .footer{
+      padding-top: 25px;
+      padding-bottom: 25px;
+   }
+   .footer-items{
+      display: flex;
+      flex-direction: column;
+   }
+   .footer-items > *{
+      width: 100%;
+      margin-bottom: 25px;
+   }
+   .copyright{
+      margin-top: 0;
+      text-align: left;
+   }
+}
+@media  (max-width: 640px){
+   .nav, .login{
+      display: none;
+   }
+   .swipe-menu, .burger{
+      display: flex;
+   }
+   .swipe-login > *{
+      font-size: 16px !important;
+   }
+   /* .burger{
+      display: block;
+   } */
+}
+@media  (max-width: 425px){
+}
+@media  (max-width: 375px){
+}
+@media  (max-width: 320px){
+}
