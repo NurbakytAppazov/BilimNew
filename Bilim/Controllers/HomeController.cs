@@ -25,7 +25,12 @@ namespace Bilim.Controllers
             return View(kurs);
         }
 
+        public IActionResult AllKurs()
+        {
+            var list = db.Kurs.ToList();
 
+            return View(list);
+        }
 
         public IActionResult Kurs(int? Id)
         {

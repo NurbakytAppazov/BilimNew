@@ -50,7 +50,7 @@
    transition: 0.3s;
 }
 .fix-header > .logo > img{
-   filter: invert(100);
+   /*filter: invert(100);*/
 }
 .fix-header > .nav > a, .fix-header > .go-back > *{
    color: #fff;
