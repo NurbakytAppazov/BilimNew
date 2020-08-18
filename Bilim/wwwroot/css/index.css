@@ -48,14 +48,18 @@
    margin-bottom: 40px;
 }
 .main-text > span{
-   font-size: 15px;
-   letter-spacing: 2px;
-   background-color: var(--main-color);
-   color: var(--white-color);
-   padding: 20px 60px;
-   border-radius: 40px;
-   box-shadow: 0 0 10px var(--main-color);
-   transition: 0.3s;
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 20px 60px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: 0.3s;
+}
+.main-text > span:hover{
+    box-shadow: 0 0 2px var(--main-color);
 }
 .main-text > a:hover{
    background-color: var(--brown-color);
@@ -92,12 +96,8 @@
    width: 40%;
 }
 .about-text > h2{
-   width: 400px;
-   height: 100px;
-   background-image: url(../img/logo.png);
-   background-size: contain;
-   background-repeat: no-repeat;
    margin-bottom: 15px;
+   font-size: 22px;
 }
 .about-text > p{
    font-weight: lighter;
@@ -268,8 +268,11 @@
 /* –––––––––––––––COURSES–––––––––––––– */
 .courses{
    width: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
    padding-top: 100px;
-   padding-bottom: 100px;
+   padding-bottom: 50px;
    background-color: var(--pink-color);
 }
 .courses > h2{
@@ -291,6 +294,7 @@
    box-shadow: 0 0 20px var(--grey-color);
    border-radius: 3px;
    overflow: hidden;
+   text-decoration: none;
 }
 .course-item:hover > .course-img > img{
    transform: scale(1.05);
@@ -306,6 +310,7 @@
 .course-img > img{
    width: 100%;
    height: 100%;
+   object-fit: cover;
    background-size: cover;
    background-repeat: no-repeat;
    transition: 0.5s;
@@ -325,9 +330,9 @@
    display: flex;
    align-items: center;
    font-weight: normal;
-   height: 64px;
-   line-height: 30px;
-   font-size: 28px;
+   height: 55px;
+   line-height: 26px;
+   font-size: 24px;
 }
 .course-text > p{
    font-weight: bold;
@@ -347,7 +352,6 @@
    color: var(--white-color);
    text-decoration: none;
    text-align: center;
-   margin: 10px 0;
    margin-bottom: 0;
    border: 1px solid var(--brown-color);
    border-radius: 3px;
@@ -357,10 +361,49 @@
    background-color: var(--white-color);
    color: var(--brown-color);
 }
+.isfree {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+}
+.isfree > i{
+    margin-right: 10px;
+    font-size: 20px;
+}
+.isfree-green {
+    border: 1px solid green;
+}
+.isfree-red {
+    border: 1px solid red;
+}
+.isfree-green, .isfree-green > i {
+    color: green !important;
+}
+.isfree-red, .isfree-red > i {
+    color: red !important;
+}
+
+.all-course-btn {
+    padding: 15px;
+    background-color: var(--main-color);
+    box-shadow: 0 0 10px var(--main-color);
+    color: var(--white-color);
+    text-decoration: none;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    border-radius: 3px;
+    transition: 0.2s;
+}
+.all-course-btn:hover{
+    box-shadow: 0 0 3px var(--main-color);
+}
 
 
-@media  (max-width: 1024px){
-   .main{
+@media (max-width: 1024px) {
+    .main{
       height: 670px;
       align-items: start;
    }
@@ -549,9 +592,8 @@
    .course-text > p > i{
       font-size: 16px;
    }
-   .course-text > a{
+   .course-text > a, .isfree{
       padding: 10px;
-      margin-top: 5px;
    }
 }
 @media  (max-width: 640px){
@@ -710,9 +752,9 @@
      padding: 25px;
    }
    .course-text > h2{
-     font-size: 22px;
-     height: 52px;
-     line-height: 26px;
+     font-size: 18px;
+     height: 42px;
+     line-height: 21px;
    }
    .course-text > *{
      font-size: 16px;

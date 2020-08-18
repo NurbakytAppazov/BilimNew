@@ -46,11 +46,11 @@
   transition: 0.3s;
 }
 .logo{
-  width: 170px;
+  width: 130px;
 }
 .logo > img{
   width: 100%;
-  filter: invert(100);
+  filter: brightness(100);
 }
 .login{
   text-decoration: none;

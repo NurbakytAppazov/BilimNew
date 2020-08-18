@@ -50,7 +50,7 @@
    transition: 0.3s;
 }
 .fix-header > .logo > img{
-   /*filter: invert(100);*/
+  filter: brightness(100);
 }
 .fix-header > .nav > a, .fix-header > .go-back > *{
    color: #fff;
@@ -65,7 +65,7 @@
    color: #fff;
 }
 .logo{
-   width: 175px;
+   width: 130px;
 }
 .logo > img{
    width: 100%;

@@ -20,7 +20,8 @@ namespace Bilim.Controllers
 
         public IActionResult Visitor()
         {
-            var kurs = db.Kurs.ToList();
+            //var kurs = db.Kurs.ToList();
+            var kurs = db.Kurs.Take(6);
 
             return View(kurs);
         }
