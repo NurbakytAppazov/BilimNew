@@ -13,23 +13,25 @@
     <div class="wrap">
         @if (User.IsInRole("Admin"))
         {
-            <div class="swipe-menu">
-                <div class="close">
-                    <span></span>
-                    <!-- <i class="fa fa-close"></i> -->
-                </div>
-                <a href="#">Басты бет</a>
-                <a href="/Admin/UserList" class="fix-active">Оқушылар</a>
-                <a href="#" class="kurs-down">Курстар <i class="fa fa-angle-right"></i> </a>
-                <div class="kurs-down-menu">
-                    <a href="/Admin/KursList">Курстар тізімі</a>
-                    <a href="/Admin/KursCreate">Курс қосу</a>
-                </div>
-                <a href="/Account/Profil" class="swipe-login">
-                    <span>Аккаунт</span>
-                    <i class="fa fa-user-o"></i>
-                </a>
+        <div class="swipe-menu">
+            <div class="close">
+                <span></span>
+                <!-- <i class="fa fa-close"></i> -->
             </div>
+            <a href="#">Басты бет</a>
+            <a href="/Admin/UserList" class="fix-active">Оқушылар</a>
+            <a href="/Admin/FreeVideoList" class="fix-active">Тегін видеолар</a>
+            <a href="#" class="kurs-down">Курстар <i class="fa fa-angle-right"></i> </a>
+            <div class="kurs-down-menu">
+                <a href="/Admin/KursList">Курстар тізімі</a>
+                <a href="/Admin/KursCreate">Курс қосу</a>
+            </div>
+
+            <a href="/Account/Profil" class="swipe-login">
+                <span>Аккаунт</span>
+                <i class="fa fa-user-o"></i>
+            </a>
+        </div>
         }
         else
         {
@@ -80,6 +82,7 @@
                 <div class="sidebar">
                     <a href="/Home/Visitor">Басты бет</a>
                     <a href="/Admin/UserList">Оқушылар</a>
+                    <a href="/Admin/FreeVideoList">Тегін видеолар</a>
                     <a href="#" class="kurs-down">Курстар <i class="fa fa-angle-right"></i> </a>
                     <div class="kurs-down-menu">
                         <a href="/Admin/KursList">Курстар тізімі</a>

@@ -1,4 +1,4 @@
-﻿@model Bilim.DbFolder.KursVideo
+﻿@model Bilim.DbFolder.FreeVideo
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewData["Title"] = "AddVideo";
@@ -7,19 +7,14 @@
 <link href="~/css/kursEdit.css" rel="stylesheet">
 
 <div class="content">
-    <form asp-action="AddVideo" class="create" enctype="multipart/form-data">
+    <form asp-action="FreeVideoAdd" class="create" enctype="multipart/form-data">
         <div class="form-blocks">
             <div class="form-block">
-                <h1>@ViewBag.Kurs.Name</h1>
-                <input name="kursId" type="hidden" value="@ViewBag.Kurs.Id">
                 <label for="title">Видео тақырыбы:</label>
                 <input asp-for="VideoName" id="title" type="text" required>
 
                 <label for="video-info">Видео мини инфо:</label>
                 <textarea asp-for="Info" id="video-info" rows="5" required></textarea>
-
-                <label>Тегін видео</label>
-                <input asp-for="Free"  />
             </div>
             <div class="form-block">
                 <label for="video-url">Видеоға сілтеме (url):</label>
@@ -34,11 +29,14 @@
             </div>
         </div>
         <div class="btn-block">
-            <a href="/Admin/KursEdit/@ViewBag.Kurs.Id">Болдырмау</a>
+            <a href="/Admin/FreeVideoList">Болдырмау</a>
             <button type="submit">Сақтау</button>
         </div>
     </form>
 </div>
+
+
+
 
 <script type="text/javascript">
     function readURL(input) {

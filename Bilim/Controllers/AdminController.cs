@@ -161,12 +161,16 @@ namespace Bilim.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddVideo(int kursId, string VideoName, string Info, string VideoUrl, IFormFile PhotoUrl)
+        public async Task<IActionResult> AddVideo(int kursId, string VideoName, string Info, string VideoUrl, IFormFile PhotoUrl, bool Free)
         {
             if(kursId != 0)
             {
                 KursVideo kv = new KursVideo { KursId = kursId, VideoName = VideoName, Info = Info, VideoUrl = VideoUrl };
 
+                if(Free == true)
+                {
+                    kv.Free = true;
+                }
                 if (PhotoUrl == null || PhotoUrl.Length == 0)
                 {
                     kv.PhotoUrl = "default.jpg";
@@ -255,5 +259,48 @@ namespace Bilim.Controllers
         }
 
 
+
+
+        public IActionResult FreeVideoList()
+        {
+            return View(db.FreeVideos.ToList());
+        }
+
+
+        public IActionResult FreeVideoAdd()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> FreeVideoAdd(FreeVideo model, IFormFile PhotoUrl)
+        {
+                FreeVideo kv = new FreeVideo { VideoName = model.VideoName, Info = model.Info, VideoUrl = model.VideoUrl, ViewCount = 0, CreateDate = DateTime.Now };
+
+                if (PhotoUrl == null || PhotoUrl.Length == 0)
+                {
+                    kv.PhotoUrl = "default.jpg";
+                }
+                else
+                {
+                    var imgname = DateTime.Now.ToString("MMddHHmmss") + PhotoUrl.FileName;
+                    string path_Root = env.WebRootPath;
+
+                    string path_to_Images = path_Root + "/freevideo/" + imgname;
+                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
+                    {
+                        await PhotoUrl.CopyToAsync(stream);
+                    }
+
+                    kv.PhotoUrl = imgname;
+                }
+                db.FreeVideos.Add(kv);
+                await db.SaveChangesAsync();
+
+                return RedirectToAction("FreeVideoList");
+            
+
+        }
     }
 }

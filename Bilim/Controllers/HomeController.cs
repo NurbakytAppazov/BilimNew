@@ -33,6 +33,21 @@ namespace Bilim.Controllers
             return View(list);
         }
 
+
+        public IActionResult AllVideo()
+        {
+            var list = db.KursVideos.Where(p=>p.Free == true).ToList();
+
+
+
+            FreeVideoModel fvm = new FreeVideoModel { KursVideos = list, FreeVideos = db.FreeVideos.ToList() };
+
+            return View(fvm);
+        }
+
+
+
+
         public IActionResult Kurs(int? Id)
         {
             if(Id != null)

@@ -1,0 +1,125 @@
+﻿@model Bilim.Models.FreeVideoModel
+@{
+    ViewData["Title"] = "AllVideo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/css/index.css" rel="stylesheet">
+<link href="~/css/slider.css" rel="stylesheet">
+
+
+
+<div class="swipe-menu">
+    <div class="close">
+        <span></span>
+        <!-- <i class="fa fa-close"></i> -->
+    </div>
+    <a href="/Home/Visitor" class="main-nav fix-active">Басты бет</a>
+    <a href="/Home/AllKurs" class="about-nav">Курстар</a>
+    <a href="/Home/Visitor" class="more-nav">Қонтакты</a>
+    <a href="/Account/Profil" class="swipe-login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+    </a>
+</div>
+<div class="header">
+    <div class="logo">
+        <img src="~/img/bilim-logo-blue.png" alt="BilimOnline">
+        <!-- Bilim Online -->
+    </div>
+    <div class="nav">
+        <a href="/Home/Visitor" class="main-nav fix-active">Басты бет</a>
+        <a href="/Home/AllKurs" class="about-nav">Курстар</a>
+        <a href="/Home/Visitor" class="more-nav">Қонтакты</a>
+    </div>
+    <a href="/Account/Profil" class="login">
+        <span>Жеке кабинет</span>
+        <i class="fa fa-user-o"></i>
+    </a>
+    <div class="burger">
+        <span></span>
+        <!-- <i class="fa fa-bars"></i> -->
+        <!-- <i class="fa fa-close"></i> -->
+    </div>
+</div>
+
+
+<div class="content">
+    <div id="courses" class="courses">
+        <h2>Тегін видеоcабақтар</h2>
+        <div class="course-items">
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы Видео такырыбы Видео
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+            <a href="#" class="course-item">
+                <div class="course-img">
+                    <img src="~/img/course-item.jpg">
+                </div>
+                <div class="course-text">
+                    <h2>
+                        Видео такырыбы
+                    </h2>
+                </div>
+            </a>
+        </div>
+        @*<a href="~/Home/AllVideo" class="all-course-btn">Барлық тегін-видеосабақтар</a>*@
+    </div>
+    </div>

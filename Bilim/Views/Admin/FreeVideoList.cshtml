@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Bilim.DbFolder.FreeVideo>
+@{
+    ViewData["Title"] = "FreeVideoList";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+<link href="~/css/kursList.css" rel="stylesheet">
+
+<div class="content">
+    <div id="courses" class="courses">
+        <a class="all-course-btn" href="/Admin/FreeVideoAdd">Тегін Видеосабақ қосу</a>
+        <h2>Тегін видеосабақтар</h2>
+        <div class="course-items">
+            @foreach (var c in Model)
+            {
+                <div class="course-item">
+                    <div class="course-img">
+                        <img src="~/kurs/@c.PhotoUrl">
+                    </div>
+                    <div class="course-text">
+                        <h2>@c.VideoName</h2>
+                        <a href="/Admin/KursEdit/@c.Id">Өзгерту</a>
+                    </div>
+                </div>
+            }
+
+            <div class="course-item">
+                <div class="course-img">
+                    <img src="~/kurs/c.PhotoUrl">
+                </div>
+                <div class="course-text">
+                    <h2>c.VideoName</h2>
+                    <a href="/Admin/KursEdit/c.Id">Өзгерту</a>
+                </div>
+            </div>
+            <div class="course-item">
+                <div class="course-img">
+                    <img src="~/kurs/c.PhotoUrl">
+                </div>
+                <div class="course-text">
+                    <h2>c.VideoName</h2>
+                    <a href="/Admin/KursEdit/c.Id">Өзгерту</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

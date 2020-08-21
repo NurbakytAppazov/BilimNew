@@ -1,0 +1,61 @@
+﻿@model Bilim.DbFolder.KursVideo
+
+@{
+    ViewData["Title"] = "Fert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fert</h2>
+
+<h4>KursVideo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Fert">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoName" class="control-label"></label>
+                <input asp-for="VideoName" class="form-control" />
+                <span asp-validation-for="VideoName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Info" class="control-label"></label>
+                <input asp-for="Info" class="form-control" />
+                <span asp-validation-for="Info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VideoUrl" class="control-label"></label>
+                <input asp-for="VideoUrl" class="form-control" />
+                <span asp-validation-for="VideoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhotoUrl" class="control-label"></label>
+                <input asp-for="PhotoUrl" class="form-control" />
+                <span asp-validation-for="PhotoUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Free" class="control-label"></label>
+                <input asp-for="Free" class="form-control" />
+                <span asp-validation-for="Free" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="KursId" class="control-label"></label>
+                <input asp-for="KursId" class="form-control" />
+                <span asp-validation-for="KursId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
