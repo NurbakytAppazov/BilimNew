@@ -32,6 +32,10 @@ namespace Bilim.Controllers
 
             return View(list);
         }
+        public IActionResult AllVideo()
+        {
+            return View();
+        }
 
 
         public IActionResult AllVideo()
