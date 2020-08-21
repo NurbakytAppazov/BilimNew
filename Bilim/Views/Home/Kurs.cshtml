@@ -231,19 +231,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('.burger').hover(function () {
-            $('.swipe-menu').toggleClass('active-menu')
-        })
-        $('.close').click(function () {
-            $('.swipe-menu').removeClass('active-menu')
-        })
-        $(window).on('scroll', function () {
-            if ($(window).scrollTop() > 90) {
-                $('.header').addClass('fix-header');
-            } else {
-                $('.header').removeClass('fix-header');
-            }
-        });
         $(window).on('scroll', function () {
             if ($(window).scrollTop() >= $('#main').offset().top) {
                 $('a.fix-active').removeClass('fix-active');
