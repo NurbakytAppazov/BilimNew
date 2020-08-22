@@ -284,5 +284,25 @@
         $('.close-mod, .modal-bg').click(function () {
             $('.modal-screen').css('display', 'none');
         })
+
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() >= $('#main').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.main-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#teacher').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.teacher-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('#about').offset().top) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.about-nav').addClass('fix-active');
+            }
+            if ($(window).scrollTop() >= $('.packages').offset().top - 100) {
+                $('a.fix-active').removeClass('fix-active');
+                $('.packages-nav').addClass('fix-active');
+            }
+        });
     })
 </script>
