@@ -45,12 +45,17 @@
   box-shadow: 0 1px 10px var(--brown-color);
   transition: 0.3s;
 }
-.logo{
-  width: 130px;
+.logo {
+    width: 130px;
+    height: 100%;
+    background-image: url(../img/bilim-logo-white.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: center;
 }
 .logo > img{
   width: 100%;
-  filter: brightness(100);
+/*  filter: brightness(100);*/
 }
 .login{
   text-decoration: none;

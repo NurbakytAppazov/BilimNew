@@ -29,7 +29,7 @@
     <div class="nav">
         <a href="/Home/Visitor" class="main-nav fix-active">Басты бет</a>
         <a href="/Home/AllVideo" class="about-nav">Тегін видеолар</a>
-        <a href="/Home/Visitor" class="more-nav">Қонтакты</a>
+        <a href="/Home/Visitor" class="more-nav">Байланыс</a>
     </div>
     <a href="/Account/Profil" class="login">
         <span>Жеке кабинет</span>
@@ -45,7 +45,7 @@
 
 <div class="content">
     <div id="courses" class="courses">
-        <h2>Біздің курстар</h2>
+        <h2 style="color: #9702ad !important">Біздің курстар</h2>
         <div class="course-items">
             @foreach (var c in Model)
             {
@@ -58,9 +58,9 @@
                         <p><i class="fa fa-user"></i>@c.AvtorName</p>
                         @*<span>@c.Info</span>*@
                         @*<span class="isfree isfree-green">
-                            <i class="fa fa-unlock"></i>
-                            Тегін курс
-                        </span>*@
+                                <i class="fa fa-unlock"></i>
+                                Тегін курс
+                            </span>*@
                         <span class="isfree isfree-red">
                             <i class="fa fa-lock"></i>
                             Ақылы курс
@@ -74,6 +74,7 @@
     </div>
 </div>
 
+<script src="~/js/visitor.js"></script>
 
 
 
@@ -82,8 +83,7 @@
 
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
+<script type="text/javascript">$(document).ready(function () {
         $('.burger').hover(function () {
             $('.swipe-menu').toggleClass('active-menu')
         })
@@ -147,5 +147,4 @@
                 'auto': true,
             });
         });
-    });
-</script>
+    });</script>

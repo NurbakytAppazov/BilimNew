@@ -2,22 +2,29 @@
 
 /* ----------------CONTENT------------------ */
 
-.main{
-   width: 100%;
-   height: 740px;
-   /* background-color: var(--pink-color); */
-   background-color: var(--white-color);
-   /* display: flex;
-   align-items: center;
-   justify-content: space-between; */
-   position: relative;
-   padding: 0;
+.main {
+    width: 100%;
+    height: 740px;
+    /* background-color: var(--pink-color); */
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-image: url(../img/1.png);
+    background-size: cover;
+/*    background-position: 40vw 0;*/
+    background-repeat: no-repeat;
 }
-.main-text{
-   width: 50%;
-   height: 100%;
-   position: relative;
-   z-index: 2;
+.main-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    width: 50%;
+/*    height: 100%;*/
+    position: relative;
+    z-index: 2;
 }
 .main-bg{
    width: 100%;
@@ -27,14 +34,49 @@
    bottom: 0;
    z-index: 1;
    /* background-position: 150% 0; */
-   /*background-position: 40vw 0;*/
-   background-repeat: no-repeat;
 }
-.main-text{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: start;
+.main-text > h1 {
+    font-size: 100px;
+    letter-spacing: 5px;
+    line-height: 90px;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.main-text > p {
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 18px;
+}
+
+.main-text > span {
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 2px;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    padding: 20px 60px;
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: 0.3s;
+}
+
+    .main-text > span:hover {
+        box-shadow: 0 0 2px var(--main-color);
+    }
+
+.main-text > a:hover {
+    background-color: var(--brown-color);
+    box-shadow: 0 0 10px var(--brown-color);
+}
+.main-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
 }
 .main-text > h1{
    font-size: 100px;
@@ -47,7 +89,7 @@
    letter-spacing: 1px;
    margin-bottom: 40px;
    color:white;
-   font-size:18px!important;
+   font-size:18px;
 }
 .main-text > span{
     cursor: pointer;
@@ -96,18 +138,22 @@
 }
 .about-img{
    width: 40%;
+   height: 100%;
+   padding-top: 70px;
 }
 .about-text > h2{
    margin-bottom: 15px;
-   font-size: 22px;
+   font-size: 36px;
 }
 .about-text > p{
    font-weight: lighter;
    line-height: 24px;
    color: var(--brown-color);
 }
-.about-img > img{ 
-   width: 100%;
+.about-img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 /* --------------------––––––––––– */
 .about-bottom{
@@ -199,27 +245,17 @@
    width: 100%;
 }
 .school-text{
-   width: 50%;
    padding-top: 100px;
-   padding-left: 100px;
    position: relative;
 }
-.school-text > span{
-   position: absolute;
-   top: 0;
-   left: 0;
-   font-size: 150px;
-   color: var(--brown-color);
-   transform: rotateZ(180deg);
-   letter-spacing: -10px;
-}
 .school-text > p{
-   width: 70%;
-   font-size: 16px;
-   color: var(--brown-color);
+   font-size: 42px;
+   color: var(--white-color);
+   text-shadow: 0 0 5px var(--main-color);
    letter-spacing: 1px;
    margin-bottom: 40px;
-}/* -------- */
+}
+/* -------- */
 .school-bottom{
    width: 100%;
    padding: 40px;
@@ -294,7 +330,7 @@
 }
 .course-item {
     width: 31%;
-    box-shadow: 0 0 20px var(--grey-color);
+    box-shadow: 0 0 15px #666;
     border-radius: 3px;
     overflow: hidden;
     text-decoration: none;
@@ -351,17 +387,17 @@
 .course-text > span{
    color: var(--grey-color);
 }
-    .course-text > a {
-        padding: 15px;
-        background-color: #2d76fa;
-        color: var(--white-color);
-        text-decoration: none;
-        text-align: center;
-        margin-bottom: 0;
-        border: 1px solid var(--brown-color);
-        border-radius: 3px;
-        transition: 0.3s;
-    }
+.course-text > a {
+    padding: 15px;
+    background-color: #2d76fa;
+    color: var(--white-color);
+    text-decoration: none;
+    text-align: center;
+    margin-bottom: 0;
+    border: 1px solid var(--brown-color);
+    border-radius: 3px;
+    transition: 0.3s;
+}
 .course-text > a:hover{
    background-color: var(--white-color);
    color: var(--brown-color);
@@ -407,26 +443,27 @@
 
 
 @media (max-width: 1024px) {
-    .main{
-      height: 670px;
-      align-items: start;
-   }
+    .main {
+        height: 670px;
+        align-items: start;
+        padding-top: 150px;
+    }
    .main-bg {
-      background-position: 25vw 0;
+/*      background-position: 25vw 0;*/
    }
    .main-text{
       justify-content: start;
    }
    .main-text > h1{
-      font-size: 90px;
-      line-height: 70px;
+      font-size: 72px;
+      line-height: 72px;
    }
    .main-text > p{
-      font-size: 15px;
+      font-size: 16px;
    }
-   .about-text > h2{
-      height: 75px;
-   }
+    .about-text > h2 {
+        font-size: 32px;
+    }
    .about-left > h2, .about-right > h2{
       font-size: 75px;
    }
@@ -440,9 +477,9 @@
       padding-top: 70px;
       padding-left: 70px;
    }
-   .school-text > span{
-      font-size: 125px;
-   }
+    .school-text > p {
+        font-size: 36px;
+    }
    .school-bottom{
       padding: 25px;
    }
@@ -476,20 +513,23 @@
    /* *{
       font-size: 13px;
    } */
+    .main {
+        padding-top: 130px;
+    }
    .main, .about{
       height: 530px;
    }
    .main-bg {
-      background-size: cover;
-      background-position: 25vw -10%;
+/*      background-size: cover;*/
+/*      background-position: 25vw -10%;*/
    }
    .main-text{
-      width: 40%;
+      width: 50%;
       justify-content: start;
    }
    .main-text > h1{
-      font-size: 60px;
-      line-height: 45px;
+      font-size: 56px;
+      line-height: 56px;
    }
    .main-text > p{
       font-size: 14px;
@@ -500,10 +540,9 @@
       letter-spacing: 1px;
       padding: 15px 40px;
    }
-   .about-text > h2 {
-      width: 100%;
-      height: 60px;
-   }
+    .about-text > h2 {
+        font-size: 28px;
+    }
    .about-text > p{
       font-size: 14px;
       line-height: 22px;
@@ -545,15 +584,9 @@
       padding-top: 60px;
       padding-left: 60px;
    }
-   .school-text > p {
-      width: 100%;
-      margin-bottom: 25px;
-      font-size: 13px;
-   }
-   .school-text > span{
-      font-size: 90px;
-      letter-spacing: -5px;
-   }
+    .school-text > p {
+        font-size: 32px;
+    }
    .school-bottom{
       padding: 15px;
       flex-wrap: wrap;
@@ -607,15 +640,14 @@
     }
 }
 @media  (max-width: 640px){
-   /* *{
-      font-size: 13px;
-   } */
-   .main{
-      height: 450px;
-   }
+    .main {
+        height: 450px;
+        padding-top: 120px;
+        background-position-x: center;
+    }
    .main-text > h1{
       font-size: 50px;
-      line-height: 35px;
+      line-height: 50px;
       margin-bottom: 20px;
    }
    .main-text > p{
@@ -630,13 +662,17 @@
    .about{
       height: 425px;
    }
-   .about-text > h2 {
-      height: 50px;
-   }
+    .about-text > h2 {
+        font-size: 24px;
+    }
    .about-text > p{
       font-size: 13px;
       line-height: 21px;
    }
+    .about-img {
+        width: 45%;
+        padding-top: 40px;
+    }
 
    .school-bottom{
       margin-top: -10px;
@@ -644,9 +680,6 @@
    .school-text{
       padding-top: 50px;
       padding-left: 5px;
-   }
-   .school-text > span{
-      font-size: 75px;
    }
    .about-list img{
       width: 55px;
@@ -685,62 +718,16 @@
       font-size: 13px;
       letter-spacing: 0.5px;
    }
-}
-@media  (max-width: 425px){
-   .main-text > h1 {
-      font-size: 35px;
-      letter-spacing: 3px;
-   }
-   .main-text > p {
-      font-size: 12px;
-      line-height: 16px;
-   }
-   .about{
-      height: auto;
-      flex-direction: column;
-      /* padding-top: 50px; */
-      padding-bottom: 50px;
-   }
+    .about {
+        height: auto;
+        flex-direction: column;
+         padding-top: 50px; 
+/*        padding-bottom: 50px;*/
+    }
    .about > *{
       width: 100%;
    }
-   .about-text > h2{
-      margin-bottom: 10px;
-   }
-   .about-text{
-      margin-bottom: 20px;
-   }
-
-   .about-bottom > h2{
-      font-size: 22px;
-   }
-   .about-bottom > h2 span{
-      font-size: 26px;
-      letter-spacing: 0;
-   }
-   .about-list img{
-      margin-right: 25px;
-   }
-
-   .school-img{
-      width: 45%;
-   }
-   .school-text{
-      padding-top: 15px;
-      padding-left: 15px;
-   }
-   .school-text > span{
-      display: none;
-   }
-   .school-text > p{
-      margin-bottom: 20px;
-      font-size: 11px;
-   }
-   .bottom-block{
-      width: 100%;
-   }
-
-
+   
    .course-items{
       flex-direction: column;
    }
@@ -773,13 +760,64 @@
       font-size: 20px;
    }
 }
+@media  (max-width: 425px){
+    .main {
+        padding-top: 100px;
+    }
+    .main-text{
+        width: 55%;
+    }
+    .main-text > h1 {
+        font-size: 35px;
+        line-height: 35px;
+        letter-spacing: 3px;
+    }
+   .main-text > p {
+      font-size: 12px;
+      line-height: 16px;
+   }
+   .about-text > h2{
+      margin-bottom: 10px;
+   }
+   .about-text{
+      margin-bottom: 20px;
+   }
+
+   .about-bottom > h2{
+      font-size: 22px;
+   }
+   .about-bottom > h2 span{
+      font-size: 26px;
+      letter-spacing: 0;
+   }
+   .about-list img{
+      margin-right: 25px;
+   }
+
+   .school-img{
+      width: 45%;
+   }
+   .school-text{
+      padding-top: 15px;
+      padding-left: 15px;
+   }
+   .school-text > p{
+      margin-bottom: 20px;
+      font-size: 26px;
+   }
+   .bottom-block{
+      width: 100%;
+   }
+
+
+}
 @media  (max-width: 375px){
    .main-bg{
-      background-position: 18vw 0;
+/*      background-position: 18vw 0;*/
    }
    .main-text > h1 {
       font-size: 30px;
-      line-height: 25px;
+      line-height: 30px;
       letter-spacing: 2px;
    }
    .main-text > p {
@@ -798,8 +836,7 @@
       padding-left: 10px;
    }
    .school-text > p{
-      margin-bottom: 10px;
-      font-size: 10px;
+      font-size: 24px;
    }
    .school-bottom{
       padding: 10px;
@@ -845,6 +882,6 @@
    }
    .school-text > p{
       margin-bottom: 10px;
-      font-size: 9px;
+      font-size: 20px;
    }
 }
