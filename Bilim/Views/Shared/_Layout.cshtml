@@ -63,6 +63,12 @@
     
 <script type="text/javascript">
     $(document).ready(function () {
+        $('.burger').hover(function () {
+            $('.swipe-menu').toggleClass('active-menu')
+        })
+        $('.close').click(function () {
+            $('.swipe-menu').removeClass('active-menu')
+        })
     });
 </script>
 </body>

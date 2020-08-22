@@ -26,6 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\freevideo\" />
+    <Content Remove="mono_crash.11a6748113.0.json" />
+    <Content Remove="mono_crash.11a6748113.0.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="wwwroot\**">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 </Project>
