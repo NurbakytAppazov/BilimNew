@@ -19,6 +19,5 @@ namespace Bilim.DbFolder
         public DateTime? EndDate { get; set; }
 
         public string PayboxNumber { get; set; }
-
     }
 }

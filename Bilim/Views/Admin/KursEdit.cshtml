@@ -11,6 +11,16 @@
         <div class="form-blocks">
             <div class="form-block">
                 <input name="kursId" type="hidden" value="@Model.Id">
+
+                <label for="kursname">Курс аты:</label>
+                <input asp-for="Name" id="kursname" type="text" value="@Model.Name" required>
+
+                <label for="price">Курс бағасы:</label>
+                <input asp-for="Price" id="price" type="number" value="@Model.Price" required>
+
+                <label for="kurs-info">Курс туралы қысқаша:</label>
+                <textarea asp-for="Info" id="kurs-info" rows="2" value="@Model.Info" required></textarea>
+
                 <label for="avtor">Курс авторы:</label>
                 <input asp-for="AvtorName" id="avtor" type="text" value="@Model.AvtorName" required>
 
@@ -18,20 +28,37 @@
                 <textarea asp-for="AvtorInfo" id="avtor-info" rows="5" value="@Model.AvtorInfo" required></textarea>
             </div>
             <div class="form-block">
-                <label for="kursname">Курс аты:</label>
-                <input asp-for="Name" id="kursname" type="text" value="@Model.Name" required>
+                <label for="kurs-info">Курс кімдерге арналады:</label>
+                <textarea asp-for="Kimge1" id="kimge1" rows="2" value="@Model.Kimge1" required></textarea>
+                <textarea asp-for="Kimge2" id="kimge2" rows="2" value="@Model.Kimge2" required></textarea>
+                <textarea asp-for="Kimge3" id="kimge3" rows="2" value="@Model.Kimge3"></textarea>
+                <textarea asp-for="Kimge4" id="kimge4" rows="2" value="@Model.Kimge4"></textarea>
+                <textarea asp-for="Kimge5" id="kimge5" rows="2" value="@Model.Kimge5"></textarea>
 
-                <label for="price">Курс бағасы:</label>
-                <input asp-for="Price" id="price" type="number" value="@Model.Price" required>
-
-                <label for="kurs-info">Курс туралы инфо:</label>
-                <textarea asp-for="Info" id="kurs-info" rows="5" value="@Model.Info" required></textarea>
+                <label for="kurs-info">Курста не үйренеді:</label>
+                <textarea asp-for="What1" id="what1" rows="2" value="@Model.What1" required></textarea>
+                <textarea asp-for="What2" id="what2" rows="2" value="@Model.What2" required></textarea>
+                <textarea asp-for="What3" id="what3" rows="2" value="@Model.What3" required></textarea>
             </div>
             <div class="form-block">
-                <label for="photo">Курс баннері(фото, jpg, png => 350 x 230):</label>
-                <input id="photo" onchange="readURL(this);" name="file" type="file" value="@Model.PhotoUrl" accept="jpg/png">
+                <label for="photo">Курс фоны(фото, jpg, png):</label>
+                <input id="photo" onchange="readURL1(this);" name="files" type="file" value="@Model.BannerUrl" accept="jpg/png">
                 <div class="img-block">
-                    <img id="banner" src="~/kurs/@Model.PhotoUrl">
+                    <img id="kursFon" src="~/kurs/@Model.BannerUrl">
+                </div>
+                <br />
+
+                <label for="photo">Курс баннері(фото, jpg, png => 350 x 230):</label>
+                <input id="photo" onchange="readURL2(this);" name="files" type="file" value="@Model.PhotoUrl" accept="jpg/png">
+                <div class="img-block">
+                    <img id="kursBanner" src="~/kurs/@Model.PhotoUrl">
+                </div>
+                <br />
+
+                <label for="photo">Автор суреті(фото, jpg, png):</label>
+                <input id="photo" onchange="readURL3(this);" name="files" type="file" value="@Model.AvtorImgUrl" accept="jpg/png">
+                <div class="img-block">
+                    <img id="avtorImg" src="~/kurs/@Model.AvtorImgUrl">
                 </div>
             </div>
         </div>
@@ -66,11 +93,36 @@
 </div>
 
 <script type="text/javascript">
-    function readURL(input) {
+
+    function readURL1(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                $('#banner')
+                $('#kursFon')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#kursBanner')
+                    .attr('src', e.target.result)
+                    .width('300px')
+                    .height('200px');
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    function readURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('#avtorImg')
                     .attr('src', e.target.result)
                     .width('300px')
                     .height('200px');

@@ -52,8 +52,10 @@ namespace Bilim.Controllers
         {
             if(Id != null)
             {
-                var kurs = db.Kurs.FirstOrDefault(p => p.Id == Id);
+                ViewBag.Videos = db.KursVideos.Where(x => x.KursId == Id).ToList();
+                ViewBag.FreeVideos = db.KursVideos.Where(x => x.KursId == Id && x.Free == true).ToList();
 
+                var kurs = db.Kurs.FirstOrDefault(p => p.Id == Id);
                 return View(kurs);
             }
             return View();

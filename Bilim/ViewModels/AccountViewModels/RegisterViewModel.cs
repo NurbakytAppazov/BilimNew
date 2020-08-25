@@ -17,6 +17,7 @@ namespace Bilim.ViewModels.AccountViewModels
         public string PhoneNumber { get; set; }
 
         [Required]
+        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 

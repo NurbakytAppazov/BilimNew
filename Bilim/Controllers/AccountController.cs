@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Bilim.DbFolder;
 using Bilim.ViewModels.AccountViewModels;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using MimeKit;
 
 namespace Bilim.Controllers
 {
@@ -156,6 +158,94 @@ namespace Bilim.Controllers
                 }
             }
             return RedirectToAction("Login");
+        }
+
+
+
+
+
+
+        [HttpGet]
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                if (user == null)
+                {
+                    // пользователь с данным email может отсутствовать в бд
+                    // тем не менее мы выводим стандартное сообщение, чтобы скрыть 
+                    // наличие или отсутствие пользователя в бд
+                    return View("Login");
+                }
+
+                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var callbackUrl = Url.Action("ResetPassword", "Account",
+                    new { userId = user.Id, code }, protocol: HttpContext.Request.Scheme);
+
+                EmailService emailService = new EmailService();
+
+                try
+                {
+                    await emailService.SendEmailAsync(model.Email, "Reset Password",
+                        $"Для сброса пароля пройдите по ссылке: <a href='{callbackUrl}'>link</a>");
+                    return View("ForgotPasswordConfirm");
+                }
+                catch (Exception err)
+                {
+                    return Content("err: " + err);
+                }
+
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult ForgotPasswordConfirm()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        public IActionResult ResetPassword(string code = null)
+        {
+            return code == null ? View("ForgotPassword") : View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if (user == null)
+            {
+                return View("ResetPasswordConfirm");
+            }
+            var result = await _userManager.ResetPasswordAsync(user, model.Code, model.Password);
+            if (result.Succeeded)
+            {
+                return View("ResetPasswordConfirm");
+            }
+            foreach (var error in result.Errors)
+            {
+                ModelState.AddModelError(string.Empty, error.Description);
+            }
+            return View(model);
+        }
+        [HttpGet]
+        public IActionResult ResetPasswordConfirm()
+        {
+            return View();
         }
     }
 }

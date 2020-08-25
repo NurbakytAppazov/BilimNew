@@ -23,11 +23,15 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.10" />
+    <PackageReference Include="MailKit" Version="2.8.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="mono_crash.11a6748113.0.json" />
     <Content Remove="mono_crash.11a6748113.0.json" />
     <Content Remove="wwwroot\js\visitor.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\avtor\" />
   </ItemGroup>
 </Project>

@@ -64,20 +64,23 @@ namespace Bilim.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> KursCreate(Kurs kurs, IFormFile file)
+        public async Task<IActionResult> KursCreate(Kurs kurs, IFormFileCollection files)
         {
-            if (file == null || file.Length == 0) return Content("Файл не найден!");
-
-            var imgname = DateTime.Now.ToString("MMddHHmmss") + file.FileName;
-
-            string kursImg = "/kurs/" + imgname;
-            using (var stream = new FileStream(env.WebRootPath + kursImg, FileMode.Create))
+            foreach(var file in files)
             {
-                await file.CopyToAsync(stream);
+                if (file == null) return Content("Файл не найден!");
+
+                var img1 = DateTime.Now.ToString("MMddHHmmss") + file.FileName;
+                using (var stream = new FileStream(env.WebRootPath + "/kurs/" + img1, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                };
             }
 
             kurs.CreatDate = DateTime.Now;
-            kurs.PhotoUrl = imgname;
+            kurs.BannerUrl = DateTime.Now.ToString("MMddHHmmss") + files[0].FileName;
+            kurs.PhotoUrl = DateTime.Now.ToString("MMddHHmmss") + files[1].FileName;
+            kurs.AvtorImgUrl = DateTime.Now.ToString("MMddHHmmss") + files[2].FileName;
 
             db.Kurs.Add(kurs);
             db.SaveChanges();
@@ -93,27 +96,54 @@ namespace Bilim.Controllers
             return View(kurs);
         }
         [HttpPost]
-        public async Task<IActionResult> KursEdit(int? kursId, Kurs kurs, IFormFile file)
+        public async Task<IActionResult> KursEdit(int? kursId, Kurs kurs, IFormFileCollection files)
         {
             if (kursId != null)
             {
                 var thisKurs = db.Kurs.FirstOrDefault(x => x.Id == kursId);
-                if (file == null || file.Length == 0)
+                int counter = 0;
+                foreach (var file in files)
                 {
-                    kurs.PhotoUrl = thisKurs.PhotoUrl;
-                }
-                else
-                {
-                    var imgname = DateTime.Now.ToString("MMddHHmmss") + file.FileName;
-
-                    string kursImg = "/kurs/" + imgname;
-                    using (var stream = new FileStream(env.WebRootPath + kursImg, FileMode.Create))
+                    counter++;
+                    if (file == null || file.Length == 0)
                     {
-                        await file.CopyToAsync(stream);
+                        if (counter == 1)
+                        {
+                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
+                        }
+                        if (counter == 2)
+                        {
+                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
+                        }
+                        if (counter == 3)
+                        {
+                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
+                        }
                     }
-
-                    kurs.PhotoUrl = imgname;
+                    else
+                    {
+                        var imgname = DateTime.Now.ToString("MMddHHmmss") + file.FileName;
+                        using (var stream = new FileStream(env.WebRootPath + "/kurs/" + imgname, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        };
+                        if (counter == 1)
+                        {
+                            kurs.BannerUrl = imgname;
+                        }
+                        else if (counter == 2)
+                        {
+                            kurs.PhotoUrl = imgname;
+                        }
+                        else if (counter == 3)
+                        {
+                            kurs.AvtorImgUrl = imgname;
+                        }
+                    }
                 }
+                thisKurs.BannerUrl = kurs.BannerUrl;
+                thisKurs.PhotoUrl = kurs.PhotoUrl;
+                thisKurs.AvtorImgUrl = kurs.AvtorImgUrl;
 
                 thisKurs.Name = kurs.Name;
                 thisKurs.Info = kurs.Info;
@@ -121,7 +151,16 @@ namespace Bilim.Controllers
                 thisKurs.AvtorInfo = kurs.AvtorInfo;
                 thisKurs.Price = kurs.Price;
                 thisKurs.CreatDate = thisKurs.CreatDate;
-                thisKurs.PhotoUrl = kurs.PhotoUrl;
+
+                thisKurs.Kimge1 = kurs.Kimge1;
+                thisKurs.Kimge2 = kurs.Kimge2;
+                thisKurs.Kimge3 = kurs.Kimge3;
+                thisKurs.Kimge4 = kurs.Kimge4;
+                thisKurs.Kimge5 = kurs.Kimge5;
+
+                thisKurs.What1 = kurs.What1;
+                thisKurs.What2 = kurs.What2;
+                thisKurs.What3 = kurs.What3;
 
                 //db.Kurs.Update(kurs);
                 await db.SaveChangesAsync();
