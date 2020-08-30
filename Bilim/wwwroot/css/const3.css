@@ -7,6 +7,7 @@
     --grey-color: #968c88;
     --pink-color: #f6f7f8;
     --red-color: #bb6054;
+    --plyr-color-main: #392d8a;
 }
 @font-face{
   font-family: MyOpenSans;
@@ -16,7 +17,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: var(--main-color);
   font-family: MyOpenSans;
   font-size: 16px;
 }

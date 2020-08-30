@@ -7,18 +7,25 @@
       <File FileName="Bilim/Views/Account/ForgotPasswordConfirm.cshtml" />
       <File FileName="Bilim/Views/Account/ResetPassword.cshtml" />
       <File FileName="Bilim/DbFolder/EmailService.cs" />
-      <File FileName="Bilim/Program.cs" />
+      <File FileName="Bilim/Program.cs" Line="17" Column="1" />
       <File FileName="Bilim/wwwroot/css/const.css" />
-      <File FileName="Bilim/wwwroot/css/index.css" Line="172" Column="24" />
+      <File FileName="Bilim/wwwroot/css/index.css" />
+      <File FileName="Bilim/Views/Account/Profil.cshtml" Line="1" Column="1" />
+      <File FileName="Bilim/Views/Account/Video.cshtml" Line="22" Column="19" />
+      <File FileName="Bilim/wwwroot/css/const3.css" Line="10" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Bilim" expanded="True">
             <Node name="Bilim" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Account" expanded="True" />
+              </Node>
               <Node name="wwwroot" expanded="True">
                 <Node name="css" expanded="True">
-                  <Node name="index.css" selected="True" />
+                  <Node name="const3.css" selected="True" />
                 </Node>
               </Node>
             </Node>

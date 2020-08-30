@@ -4,17 +4,21 @@
     ViewData["Title"] = "Video";
 }
 <link href="~/css/video.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" />
 
 
 
 <div class="content">
     <div class="main">
         <div class="video-block">
-            <div class="video">
-                <h2>@Model.VideoName</h2>
-                <!--<iframe src="https://player.vimeo.com/video/432060648" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>-->
-                @*<iframe src="https://youtu.be/embed/Meakz8rux7o" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" ></iframe>*@
-                <iframe width="640" height="360" src="@Model.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="video plyr__video-embed" id="player">
+                <iframe
+                    src="https://www.youtube.com/embed/atneWCiD37c"
+                    allowfullscreen
+                    allowtransparency
+                    allow="autoplay"
+                    controls
+                ></iframe>
             </div>
             <div class="video-text">
                 <p>@Model.Kurs.AvtorName</p>
@@ -25,28 +29,33 @@
                     @Model.Info
                 </p>
 
-                <iframe width="640" height="360" src="https://www.youtube.com/embed/atneWCiD37c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                @*<iframe width="640" height="360" src="https://www.youtube.com/embed/atneWCiD37c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
 
             </div>
         </div>
         <div class="video-titles">
-                @foreach (var c in ViewBag.OtherVideos)
-                { 
+            @foreach (var c in ViewBag.OtherVideos)
+            {
 
-                    <a href="/Account/Video/@c.Kurs.Id?videoId=@c.Id" class="video-title">
-                        <div class="baner">
-                            <img src="~/kursvideo/@c.PhotoUrl">
-                        </div>
-                        <div class="title-text">
-                            <h3>@c.VideoName</h3>
-                            <p>@c.Info</p>
-                            <span><i class="fa fa-eye"></i> 1634</span>
-                        </div>
-                    </a>
-                }
-            </div>
+                <a href="/Account/Video/@c.Kurs.Id?videoId=@c.Id" class="video-title">
+                    <div class="baner">
+                        <img src="~/kursvideo/@c.PhotoUrl">
+                    </div>
+                    <div class="title-text">
+                        <h3>@c.VideoName</h3>
+                        <p>@c.Info</p>
+                        <span><i class="fa fa-eye"></i> 1634</span>
+                    </div>
+                </a>
+            }
+        </div>
     </div>
 
-   
+
 </div>
 
+
+<script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
+<script>
+    const player = new Plyr('#player');
+</script>
