@@ -16,7 +16,7 @@
    padding: 0;
    box-sizing: border-box;
    color: var(--main-color);
-   font-family: MyOpenSans, Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+   font-family: MyOpenSans;
    font-size: 16px;
 }
 .wrap{
@@ -288,16 +288,21 @@
    border-radius: 50%;
    transition: 0.3s;
 }
-.social > a:hover i{
+/*.social > a:hover i{
    color: var(--white-color);
-}
-.social > a:first-child:hover i{
+}*/
+/*.social > a:first-child:hover i{
    border-color: #24ce61;
    background-color: #24ce61;
 }
 .social > a:last-child:hover i{
    border-color: #fdf497;
    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+}*/
+   
+
+.app-play{
+    width:50%;
 }
 
 /* -----fCenter----- */

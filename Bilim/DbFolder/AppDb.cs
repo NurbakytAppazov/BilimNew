@@ -20,5 +20,10 @@ namespace Bilim.DbFolder
         public DbSet<VideoComment> VideoComments { get; set; }
 
         public DbSet<FreeVideo> FreeVideos { get; set; }
+
+
+
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<KursWithCategory> GetKursWithCategories { get; set; }
     }
 }

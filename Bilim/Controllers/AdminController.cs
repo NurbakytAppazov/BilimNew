@@ -302,8 +302,9 @@ namespace Bilim.Controllers
 
         public IActionResult FreeVideoList()
         {
-            return View(db.FreeVideos.ToList());
+            return View(db.Categories.ToList());
         }
+
 
 
         public IActionResult FreeVideoAdd()
@@ -313,28 +314,12 @@ namespace Bilim.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> FreeVideoAdd(FreeVideo model, IFormFile PhotoUrl)
+        public async Task<IActionResult> FreeVideoAdd(Category model)
         {
-                FreeVideo kv = new FreeVideo { VideoName = model.VideoName, Info = model.Info, VideoUrl = model.VideoUrl, ViewCount = 0, CreateDate = DateTime.Now };
+            Category c = new Category { CategoryName = model.CategoryName };
+            
+                db.Categories.Add(c);
 
-                if (PhotoUrl == null || PhotoUrl.Length == 0)
-                {
-                    kv.PhotoUrl = "default.jpg";
-                }
-                else
-                {
-                    var imgname = DateTime.Now.ToString("MMddHHmmss") + PhotoUrl.FileName;
-                    string path_Root = env.WebRootPath;
-
-                    string path_to_Images = path_Root + "/freevideo/" + imgname;
-                    using (var stream = new FileStream(path_to_Images, FileMode.Create))
-                    {
-                        await PhotoUrl.CopyToAsync(stream);
-                    }
-
-                    kv.PhotoUrl = imgname;
-                }
-                db.FreeVideos.Add(kv);
                 await db.SaveChangesAsync();
 
                 return RedirectToAction("FreeVideoList");

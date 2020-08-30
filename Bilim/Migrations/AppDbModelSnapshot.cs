@@ -19,6 +19,19 @@ namespace Bilim.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Bilim.DbFolder.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CategoryName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Bilim.DbFolder.FreeVideo", b =>
                 {
                     b.Property<int>("Id")
@@ -131,6 +144,25 @@ namespace Bilim.Migrations
                     b.HasIndex("KursId");
 
                     b.ToTable("KursVideos");
+                });
+
+            modelBuilder.Entity("Bilim.DbFolder.KursWithCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<int>("KursId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("KursId");
+
+                    b.ToTable("GetKursWithCategories");
                 });
 
             modelBuilder.Entity("Bilim.DbFolder.User", b =>
@@ -354,6 +386,19 @@ namespace Bilim.Migrations
 
             modelBuilder.Entity("Bilim.DbFolder.KursVideo", b =>
                 {
+                    b.HasOne("Bilim.DbFolder.Kurs", "Kurs")
+                        .WithMany()
+                        .HasForeignKey("KursId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("Bilim.DbFolder.KursWithCategory", b =>
+                {
+                    b.HasOne("Bilim.DbFolder.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("Bilim.DbFolder.Kurs", "Kurs")
                         .WithMany()
                         .HasForeignKey("KursId")

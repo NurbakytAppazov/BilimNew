@@ -45,30 +45,53 @@
 
 <div class="content">
     <div id="courses" class="courses">
+
+        <form asp-action="AllKurs">
+            <select name="cat1">
+                <option value="qw">1</option>
+                <option>1</option>
+                <option>1</option>
+            </select>
+            <select>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+            </select>
+            <select>
+                <option>1</option>
+                <option>1</option>
+                <option>1</option>
+            </select>
+
+            <input type="submit" value="Іздеу" />
+        </form>
+
         <h2 style="color: #9702ad !important">Біздің курстар</h2>
+
+
+
         <div class="course-items">
             @foreach (var c in Model)
             {
-                <div class="course-item">
-                    <div class="course-img">
-                        <img src="~/kurs/@c.PhotoUrl">
-                    </div>
-                    <div class="course-text">
-                        <h2>@c.Name</h2>
-                        <p><i class="fa fa-user"></i>@c.AvtorName</p>
-                        @*<span>@c.Info</span>*@
-                        @*<span class="isfree isfree-green">
-                                <i class="fa fa-unlock"></i>
-                                Тегін курс
-                            </span>*@
-                        <span class="isfree isfree-red">
-                            <i class="fa fa-lock"></i>
-                            Ақылы курс
-                        </span>
-                        <a href="/Home/Kurs">Курс жайлы толығырақ</a>
-                    </div>
-                </div>
-            }
+    <div class="course-item">
+        <div class="course-img">
+            <img src="~/kurs/@c.PhotoUrl">
+        </div>
+        <div class="course-text">
+            <h2>@c.Name</h2>
+            <p><i class="fa fa-user"></i>@c.AvtorName</p>
+            @*<span>@c.Info</span>*@
+            @*<span class="isfree isfree-green">
+                <i class="fa fa-unlock"></i>
+                Тегін курс
+            </span>*@
+            <span class="isfree isfree-red">
+                <i class="fa fa-lock"></i>
+                Ақылы курс
+            </span>
+            <a href="/Home/Kurs">Курс жайлы толығырақ</a>
+        </div>
+    </div>            }
 
         </div>
     </div>

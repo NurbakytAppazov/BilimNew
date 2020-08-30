@@ -152,7 +152,7 @@ namespace Bilim.Controllers
                     var kurs = await db.Kurs.FirstOrDefaultAsync(x => x.Id == id);
                     var video = await db.KursVideos.FirstOrDefaultAsync(x => x.Id == videoId);
 
-                    ViewBag.OtherVideos = await db.KursVideos.Where(x => x.Id != videoId).ToListAsync();
+                    ViewBag.OtherVideos = await db.KursVideos.Where(x => x.Id != videoId).Include(p=>p.Kurs).ToListAsync();
 
                     return View(video);
                 }

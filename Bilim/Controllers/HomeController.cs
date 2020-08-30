@@ -16,6 +16,9 @@ namespace Bilim.Controllers
         {
             _logger = logger;
             db = _db;
+
+
+            
         }
 
         public IActionResult Visitor()
@@ -29,6 +32,21 @@ namespace Bilim.Controllers
         public IActionResult AllKurs()
         {
             var list = db.Kurs.ToList();
+
+            ViewBag.Cat = db.Categories.Select(p => p.CategoryName).ToList();
+
+            return View(list);
+        }
+
+        [HttpPost]
+        public IActionResult AllKurs(string cat1, string cat2, string cat3)
+        {
+            var list = db.Kurs.ToList();
+
+            if(cat1 != "qw")
+            {
+                return Content("String !=");
+            }
 
             return View(list);
         }

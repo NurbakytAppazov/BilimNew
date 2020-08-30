@@ -1,4 +1,4 @@
-﻿@model Bilim.DbFolder.FreeVideo
+﻿@model Bilim.DbFolder.Category
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewData["Title"] = "AddVideo";
@@ -10,22 +10,8 @@
     <form asp-action="FreeVideoAdd" class="create" enctype="multipart/form-data">
         <div class="form-blocks">
             <div class="form-block">
-                <label for="title">Видео тақырыбы:</label>
-                <input asp-for="VideoName" id="title" type="text" required>
-
-                <label for="video-info">Видео мини инфо:</label>
-                <textarea asp-for="Info" id="video-info" rows="5" required></textarea>
-            </div>
-            <div class="form-block">
-                <label for="video-url">Видеоға сілтеме (url):</label>
-                <input asp-for="VideoUrl" id="video-url" type="text" required>
-            </div>
-            <div class="form-block">
-                <label for="photo">Курс баннері(фото, jpg, png => 350 x 230):</label>
-                <input id="photo" onchange="readURL(this);" name="PhotoUrl" type="file" accept="jpg/png">
-                <div class="img-block">
-                    <img id="banner" src="~/img/course-item.jpg">
-                </div>
+                <label for="video-url">Категория аты:</label>
+                <input asp-for="CategoryName" id="video-url" type="text" required>
             </div>
         </div>
         <div class="btn-block">
