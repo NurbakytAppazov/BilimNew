@@ -1,29 +1,25 @@
-﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{D192647D-0428-44AA-9A73-4C267B20CDF9}|Bilim">
+﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{D192647D-0428-44AA-9A73-4C267B20CDF9}|Default">
   <MonoDevelop.Ide.ItemProperties.Bilim PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bilim/DbFolder/EmailService.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="Bilim/Controllers/AccountController.cs" Line="195" Column="18" />
-      <File FileName="Bilim/Views/Account/ForgotPassword.cshtml" Line="24" Column="50" />
-      <File FileName="Bilim/Views/Account/ForgotPasswordConfirm.cshtml" Line="3" Column="40" />
-      <File FileName="Bilim/Views/Account/ResetPassword.cshtml" Line="1" Column="1" />
-      <File FileName="Bilim/DbFolder/EmailService.cs" Line="28" Column="1" />
+      <File FileName="Bilim/Views/Account/ForgotPassword.cshtml" />
+      <File FileName="Bilim/Views/Account/ForgotPasswordConfirm.cshtml" />
+      <File FileName="Bilim/Views/Account/ResetPassword.cshtml" />
+      <File FileName="Bilim/DbFolder/EmailService.cs" />
+      <File FileName="Bilim/Program.cs" />
+      <File FileName="Bilim/wwwroot/css/const.css" />
+      <File FileName="Bilim/wwwroot/css/index.css" Line="172" Column="24" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Bilim" expanded="True">
             <Node name="Bilim" expanded="True">
-              <Node name="Dependencies" expanded="True" />
-              <Node name="Controllers" expanded="True" />
-              <Node name="DbFolder" expanded="True">
-                <Node name="EmailService.cs" selected="True" />
-              </Node>
-              <Node name="ViewModels" expanded="True">
-                <Node name="AccountViewModels" expanded="True" />
-              </Node>
-              <Node name="Views" expanded="True">
-                <Node name="Account" expanded="True" />
-                <Node name="Shared" expanded="True" />
+              <Node name="wwwroot" expanded="True">
+                <Node name="css" expanded="True">
+                  <Node name="index.css" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
