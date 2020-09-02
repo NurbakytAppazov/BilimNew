@@ -1,7 +1,8 @@
-﻿@model Bilim.DbFolder.User
+﻿@model Bilim.ViewModels.AdminViewModels.AboutUserView
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewData["Title"] = "AdminIndex";
+    int counter = 0;
 }
 
 <link href="~/css/aboutStud.css" rel="stylesheet">
@@ -24,32 +25,29 @@
                         <th>Email</th>
                     </tr>
                     <tr>
-                        <td>@Model.FirstName @Model.LastName</td>
-                        <td>@Model.PhoneNumber</td>
-                        <td>@Model.Email</td>
+                        <td>@Model.User.FirstName @Model.User.LastName</td>
+                        <td>@Model.User.PhoneNumber</td>
+                        <td>@Model.User.Email</td>
                     </tr>
                 </table>
-                <table>
+                <table class="user-kurs">
                     <tr>
                         <th colspan="2">Сатып алған курстары</th>
                     </tr>
-                    @if (ViewBag.UserKurses != null)
+                    @if (Model.UserKurs != null)
                     {
                         <tr>
                             <th>Курс аты</th>
-                            <th>Пакет</th>
+                            <th>Доступ</th>
                         </tr>
-                        foreach (var c in ViewBag.UserKurses)
+                        foreach (var c in Model.UserKurs)
                         {
                             <tr>
-                                <td>@c.KursId</td>
-                                <td>@c.KursId</td>
+                                <td>@c.Kurs.Name</td>
+                                <td>Бар</td>
                             </tr>
                         }
                     }
-                    <tr>
-                        <td colspan="2" style="color:red">Басқа ешқандай курс сатып алмаған!</td>
-                    </tr>
                 </table>
             </div>
             <div class="dostup-table">
@@ -58,27 +56,46 @@
                         <th colspan="4">Доступ беру</th>
                     </tr>
                     <tr>
-                        <th>Курс аты</th>
-                        <th>Пакет1</th>
-                        <th>Пакет2</th>
+                        <th>№</th>
+                        <th>Курстар</th>
+                        <th>Доступ</th>
                     </tr>
-                    <tr>
-                        <td>jasndjald asdasd  af asfa faf</td>
-                        <td><a href="#">Бар</a></td>
-                        <td><a href="#">Жоқ</a></td>
-                    </tr>
-                    <tr>
-                        <td>jasndjald asdasd  af asfa faf</td>
-                        <td><a href="#">Жоқ</a></td>
-                        <td><a href="#">Жоқ</a></td>
-                    </tr>
-                    <tr>
-                        <td>jasndjald asdasd  af asfa faf</td>
-                        <td><a href="#">Жоқ</a></td>
-                        <td><a href="#">Жоқ</a></td>
-                    </tr>
+                    @foreach (var c in Model.Kurs)
+                    {
+                        counter++;
+                        <tr>
+                            <td>
+                                @counter
+                                <form method="post" id="@c.Id" asp-action="AboutUser">
+                                    <input type="hidden" name="userId" value="@Model.User.Id" />
+                                    <input type="hidden" name="kursId" value="@c.Id" />
+                                </form>
+                            </td>
+                            <td>@c.Name</td>
+                            @if (Model.UserKurs.FirstOrDefault(x => x.KursId == c.Id) != null)
+                            {
+                                <td>
+                                    <button class="red-btn" type="submit" form="@c.Id">Өшіру</button>
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    <button class="green-btn" type="submit" form="@c.Id">Беру</button>
+                                </td>
+                            }
+                        </tr>
+                    }
                 </table>
             </div>
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        if ($('.user-kurs tr').length === 2) {
+            $('.user-kurs').append(
+                '<tr><td colspan="2" style="color:red">Ешқандай курс сатып алмаған!</td></tr>');
+        }
+    });
+</script>

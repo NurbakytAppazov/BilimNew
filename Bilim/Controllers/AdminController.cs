@@ -27,26 +27,59 @@ namespace Bilim.Controllers
 
         public async Task<IActionResult> UserList(int? page = 1)
         {
-            ViewBag.Count = db.Users.Where(x => x.UserName != "BeautyAdmin").Count();
+            ViewBag.Count = db.Users.Where(x => x.UserName != "Admin").Count();
             ViewBag.Page = page;
 
             var pager = new Pager(ViewBag.Count, page);
 
             UsersView uv = new UsersView
             {
-                Users = await db.Users.Where(x => x.UserName != "BeautyAdmin").Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize).ToListAsync(),
+                Users = await db.Users.Where(x => x.UserName != "Admin").Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize).ToListAsync(),
                 Pager = pager
             };
 
             return View(uv);
         }
 
-        public IActionResult AboutUser(string id)
+        public async Task<IActionResult> AboutUser(string id)
         {
-            var user = db.Users.FirstOrDefault(x => x.Id == id);
-            ViewBag.UserKurses = db.UserKurs.Where(x => x.UserId == id);
+            AboutUserView auv = new AboutUserView()
+            {
+                User = db.Users.FirstOrDefault(x => x.Id == id),
+                Kurs = await db.Kurs.ToListAsync(),
+                UserKurs = await db.UserKurs.Where(x => x.UserId == id).ToListAsync()
+            };
 
-            return View(user);
+            return View(auv);
+        }
+        [HttpPost]
+        public async Task<IActionResult> AboutUser(string userId, int kursId)
+        {
+            if (userId != null && kursId != 0)
+            {
+                var have = await db.UserKurs.FirstOrDefaultAsync(x => x.UserId == userId && x.KursId == kursId);
+                if(have != null)
+                {
+                    db.Remove(have);
+                    await db.SaveChangesAsync();
+                }
+                else
+                {
+                    UserKurs uk = new UserKurs { UserId = userId, KursId = kursId };
+
+                    await db.AddAsync(uk);
+                    await db.SaveChangesAsync();
+                }
+                AboutUserView auv = new AboutUserView()
+                {
+                    User = db.Users.FirstOrDefault(x => x.Id == userId),
+                    Kurs = await db.Kurs.ToListAsync(),
+                    UserKurs = await db.UserKurs.Where(x => x.UserId == userId).ToListAsync()
+                };
+                return View(auv);
+            }
+
+            return RedirectToAction("UserList");
         }
 
 
@@ -269,6 +302,7 @@ namespace Bilim.Controllers
                     video.PhotoUrl = imgname;
                 }
 
+                thisVideo.Free = video.Free;
                 thisVideo.VideoName = video.VideoName;
                 thisVideo.Info = video.Info;
                 thisVideo.VideoUrl = video.VideoUrl;

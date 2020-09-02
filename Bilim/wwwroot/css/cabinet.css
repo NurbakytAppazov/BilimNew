@@ -21,17 +21,19 @@
    flex-wrap: wrap;
    /* outline: 1px solid; */
 }
-.course-item{
-   width: 32%;
-   border-radius: 2px;
-   overflow: hidden;
-   box-shadow: 0 0 20px var(--grey-color);
+.course-item {
+    width: 32%;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 0 20px var(--grey-color);
+    margin-bottom: 20px;
 }
 .course-item:hover > .course-img > img{
    transform: scale(1.05);
 }
 .course-item:nth-child(3n+2){
    margin: 0 2%;
+   margin-bottom: 20px;
 }
 .course-img{
    width: 100%;
@@ -54,13 +56,13 @@
    flex-direction: column;
 }
 .course-text > *{
-   margin-bottom: 10px;
+   margin-bottom: 7px;
 }
 .course-text > h2{
    display: flex;
    align-items: center;
    font-weight: normal;
-   height: 64px;
+   height: 60px;
    line-height: 30px;
    font-size: 24px;
 }
@@ -106,9 +108,9 @@
       font-size: 13px;
    }
    .course-text > h2{
-      font-size: 20px;
-      height: 50px;
-      line-height: 24px;
+      font-size: 18px;
+      height: 40px;
+      line-height: 22px;
    }
    .course-text > a{
       padding: 10px;
@@ -122,15 +124,15 @@
       height: 120px;
    }
    .course-text{
-      padding: 12px;
+      padding: 10px;
    }
    .course-text > *{
       font-size: 12px;
    }
    .course-text > h2 {
-      font-size: 16px;
+      font-size: 14px;
       height: 32px;
-      line-height: 20px;
+      line-height: 18px;
    }
    .course-text > p > i{
       font-size: 16px;

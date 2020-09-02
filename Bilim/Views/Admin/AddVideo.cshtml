@@ -18,8 +18,11 @@
                 <label for="video-info">Видео мини инфо:</label>
                 <textarea asp-for="Info" id="video-info" rows="5" required></textarea>
 
-                <label>Тегін видео</label>
-                <input asp-for="Free"  />
+                <div>
+                    <label>
+                        <input asp-for="Free" id="free-video" /> Тегін видео
+                    </label>
+                </div>
             </div>
             <div class="form-block">
                 <label for="video-url">Видеоға сілтеме (url):</label>

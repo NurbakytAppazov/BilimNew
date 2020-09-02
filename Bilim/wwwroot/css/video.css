@@ -15,7 +15,7 @@
 }
 .video{
    width: 100%;
-   height: 460px;
+/*   height: 460px;*/
    margin-bottom: 15px;
    border-radius: 3px;
    overflow: hidden;
@@ -40,7 +40,9 @@
 /* -----------video-titles---------- */
 .video-titles{
    width: 30%;
-   padding-left: 15px;
+/*   height: 90vh;*/
+   margin-left: 15px;
+/*   overflow-y: scroll;*/
 }
 .video-title{
    width: 100%;
@@ -51,7 +53,7 @@
    background-color: #fff;
    border-radius: 3px;
    overflow: hidden;
-   box-shadow: 0 0 10px var(--grey-color);
+   box-shadow: inset 0 0 3px var(--grey-color);
    padding: 5px;
    margin-bottom: 10px;
 }
@@ -70,10 +72,14 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+/*   overflow-y: scroll;*/
 }
-.title-text > p{
-   font-size: 14px;
-   color: var(--brown-color);
+.title-text > p {
+    font-size: 13px;
+    color: var(--brown-color);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .title-text > span, .title-text > span > i{
    font-size: 14px;
@@ -85,7 +91,7 @@
 
 @media (min-width: 1200px) and (max-width: 1300px) {
     .video {
-        height: 415px;
+/*        height: 415px;*/
     }
     .video-title {
         height: 90px;
@@ -93,7 +99,7 @@
 }
 @media (min-width: 1024px) and (max-width: 1200px) {
     .video {
-        height: 375px;
+/*        height: 375px;*/
     }
     .video-title {
         height: 85px;
@@ -102,7 +108,7 @@
 
 @media (min-width: 880px) and (max-width: 1024px) {
     .video{
-      height: 285px;
+/*      height: 285px;*/
    }
     .video-text > h1 {
         font-size: 22px;
@@ -131,13 +137,13 @@
       width: 100%;
    }
    .video {
-      height: 380px;
+/*      height: 380px;*/
    }
    .video-text > h1 {
       font-size: 24px;
    }
    .video-titles{
-      padding: 0;
+      margin-left: 0;
       margin-top: 20px;
    }
     .video-title{
@@ -163,7 +169,7 @@
       padding-top: 12px;
    }
    .video {
-      height: 330px;
+/*      height: 330px;*/
    }
     .video-title{
         height: 110px;
@@ -175,7 +181,7 @@
    }
    .video {
       width: 105%;
-      height: 360px;
+/*      height: 360px;*/
       margin-left: -2.5%;
       border-radius: 0;
       box-shadow: none;
@@ -189,8 +195,11 @@
 }
 @media  (max-width: 550px){
    .video {
-      height: 310px;
+/*      height: 310px;*/
    }
+    .video-titles {
+        padding-bottom: 70px;
+    }
    .video-title {
       height: 100px;
   }
@@ -206,7 +215,7 @@
 }
 @media  (max-width: 425px){
    .video {
-      height: 240px;
+/*      height: 240px;*/
    }
    .video-text > h1 {
       font-size: 18px;
@@ -229,7 +238,7 @@
 }
 @media  (max-width: 375px){
    .video {
-      height: 210px;
+/*      height: 210px;*/
    }
    .video-title {
       height: 90px;
@@ -246,7 +255,7 @@
 }
 @media  (max-width: 320px){
    .video {
-      height: 180px;
+/*      height: 180px;*/
    }
    .video-title {
       height: 80px;

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Bilim.DbFolder;
 using Bilim.ViewModels.AccountViewModels;
+using Bilim.ViewModels.AdminViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -91,6 +93,7 @@ namespace Bilim.Controllers
                     await _signInManager.PasswordSignInAsync(model.PhoneNumber, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
+                    var user = await _userManager.FindByNameAsync(model.PhoneNumber);
                     // проверяем, принадлежит ли URL приложению
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
@@ -120,10 +123,11 @@ namespace Bilim.Controllers
 
 
         [Authorize]
-        public IActionResult Profil()
+        public async Task<IActionResult> Profil()
         {
             if(User.Identity.IsAuthenticated)
             {
+                var user = await _userManager.FindByNameAsync(User.Identity.Name);
                 if (User.IsInRole("Admin"))
                 {
                     return RedirectToAction("UserList", "Admin");
@@ -131,14 +135,16 @@ namespace Bilim.Controllers
                 }
                 else
                 {
-                    var kurs = db.Kurs.ToList();
-                    return View(kurs);
+                    var uk = await db.UserKurs.Where(x => x.UserId == user.Id).ToListAsync();
+                    ViewBag.kurses = await db.Kurs.ToListAsync();
+                    return View(uk);
                 }
             }
             return RedirectToAction("Login");
         }
+
         [Authorize]
-        public async Task<IActionResult> Video(int id, int videoId = 1)
+        public async Task<IActionResult> Video(int id, int videoId = 0)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -150,9 +156,19 @@ namespace Bilim.Controllers
                 else
                 {
                     var kurs = await db.Kurs.FirstOrDefaultAsync(x => x.Id == id);
-                    var video = await db.KursVideos.FirstOrDefaultAsync(x => x.Id == videoId);
-
-                    ViewBag.OtherVideos = await db.KursVideos.Where(x => x.Id != videoId).Include(p=>p.Kurs).ToListAsync();
+                    KursVideo video;
+                    List<KursVideo> otherVideos;
+                    if (videoId == 0)
+                    {
+                        video = await db.KursVideos.FirstOrDefaultAsync(x => x.KursId == kurs.Id);
+                        otherVideos = await db.KursVideos.Where(x => x.Id != video.Id && x.KursId == id).Include(p => p.Kurs).ToListAsync();
+                    }
+                    else
+                    {
+                        video = await db.KursVideos.FirstOrDefaultAsync(x => x.Id == videoId && x.KursId == kurs.Id);
+                        otherVideos = await db.KursVideos.Where(x => x.Id != videoId && x.KursId == id).Include(p => p.Kurs).ToListAsync();
+                    }
+                    ViewBag.OtherVideos = otherVideos;
 
                     return View(video);
                 }

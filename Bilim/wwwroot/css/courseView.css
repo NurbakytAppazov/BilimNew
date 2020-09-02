@@ -244,8 +244,8 @@
    align-items: center;
    font-weight: normal;
    height: 55px;
-   line-height: 26px;
-   font-size: 24px;
+   line-height: 22px;
+   font-size: 20px;
 }
 .course-text > a {
     padding: 15px;
@@ -607,15 +607,15 @@
       height: 180px;
    }
    .course-text{
-      padding: 20px;
+      padding: 15px;
    }
    .course-text > *{
       font-size: 14px;
    }
    .course-text > h2{
-      font-size: 22px;
-      height: 52px;
-      line-height: 26px;
+      font-size: 16px;
+      height: 40px;
+      line-height: 20px;
    }
     .course-item, .course-item:nth-child(3n+2) {
         margin-bottom: 25px;
@@ -714,15 +714,15 @@
       height: 135px;
    }
    .course-text{
-      padding: 15px;
+      padding: 10px;
    }
    .course-text > *{
       font-size: 13px;
    }
    .course-text > h2{
-      font-size: 17px;
-      height: 34px;
-      line-height: 22px;
+      font-size: 14px;
+      height: 46px;
+      line-height: 18px;
    }
    .course-text > p > i{
       font-size: 16px;
@@ -839,8 +839,8 @@
       padding: 10px;
    }
    .course-text > h2{
-      font-size: 15px;
-      height: 30px;
+      font-size: 13px;
+      height: 36px;
       line-height: 15px;
    }
    .course-text > *{
