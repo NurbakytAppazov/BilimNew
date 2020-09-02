@@ -111,11 +111,16 @@
 .contact-phone > a:hover{
    text-decoration: underline;
 }
-.social > a{
-   text-decoration: none;
-   text-align: center;
-   margin-right: 5px;
-   transition: 0.3s;
+
+.social{
+    display: flex;
+    align-items: center;
+}
+.social > a {
+    text-decoration: none;
+    text-align: center;
+    margin-right: 5px;
+    transition: 0.3s;
 }
 .social > a i{
    width: 32px;
@@ -128,16 +133,36 @@
    border-radius: 50%;
    transition: 0.3s;
 }
+.social > a i.fa-telegram{
+   font-size: 32px;
+   background-color: var(--grey-color);
+   color: white;
+   border: 1px solid var(--grey-color)
+}
 .social > a:hover i{
    color: var(--white-color);
 }
-.social > a:first-child:hover i{
+.social > a:nth-child(1):hover i{
    border-color: #24ce61;
    background-color: #24ce61;
 }
-.social > a:last-child:hover i{
+.social > a:nth-child(2):hover i{
    border-color: #fdf497;
    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%) !important;
+}
+.social > a:nth-child(3):hover i{
+   border-color: #1b77f2;
+   background-color: #1b77f2;
+}
+.social > a:nth-child(4):hover i{
+   border-color: #26a7e7;
+   background-color: white;
+   color: #26a7e7;
+}
+
+
+.app-play {
+    width: 150px;
 }
 
 /* -----fCenter----- */
@@ -176,7 +201,7 @@
 }
 @media  (max-width: 768px){
    .logo{
-      width: 160px;
+      width: 100px;
    }
    .footer{
       padding-top: 25px;

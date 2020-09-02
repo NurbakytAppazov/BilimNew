@@ -11,23 +11,26 @@
 <div class="content">
     <div class="main">
         <div class="video-block">
-            <div class="video plyr__video-embed" id="player">
-                <iframe
-                    src="https://www.youtube.com/embed/atneWCiD37c"
-                    allowfullscreen
-                    allowtransparency
-                    allow="autoplay"
-                    controls
-                ></iframe>
+            <div class="video">
+                <div class="plyr__video-embed" id="player">
+                    <iframe
+                        src="@Model.VideoUrl"
+                        encrypted-media;
+                        gyroscope;
+                        allowfullscreen
+                        allow="autoplay"
+                        controls
+                    ></iframe>
+                </div>
             </div>
             <div class="video-text">
-                <p>@Model.Kurs.AvtorName</p>
                 <h1>@Model.VideoName</h1>
+                <p><i class="fa fa-user"></i> @Model.Kurs.AvtorName</p>
                 <p><i class="fa fa-eye"></i>1634</p>
-                <p>26.07.2020</p>
-                <p>
+                <p class="vinfo">
                     @Model.Info
                 </p>
+                @*src="https://www.youtube.com/embed/atneWCiD37c?rel=0"*@
 
                 @*<iframe width="640" height="360" src="https://www.youtube.com/embed/atneWCiD37c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
 
@@ -58,4 +61,18 @@
 <script src="https://cdn.plyr.io/3.5.6/plyr.js"></script>
 <script>
     const player = new Plyr('#player');
+
+    @*alert($('.vinfo').text());*@
+
+    $(window).load(function () {
+        var element = $('.vinfo').text();
+        var maxLength = 10;
+
+        if (element.length > maxLength) {
+            element = element.substr(0, maxLength) + '...';
+        }
+        $('.vinfo').text() = element;
+        @*return element;*@
+    })
+
 </script>

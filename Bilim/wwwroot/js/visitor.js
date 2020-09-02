@@ -7,8 +7,6 @@ $(document).ready(function () {
 		}
 	});
 
-
-
 	$('.main-nav').click(function () {
 		var offset = 0;
 		$('a.fix-active').removeClass('fix-active');
