@@ -2,24 +2,19 @@
   <MonoDevelop.Ide.ItemProperties.Bilim PreferredExecutionTarget="/Applications/Google Chrome.app" />
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Bilim/Controllers/AccountController.cs" Line="139" Column="43" />
-      <File FileName="Bilim/Views/Account/Profil.cshtml" Line="33" Column="59" />
+      <File FileName="Bilim/Views/Admin/AboutUser.cshtml" Line="96" Column="44" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Bilim" expanded="True">
             <Node name="Bilim" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="AccountController.cs" selected="True" />
-              </Node>
+              <Node name="Controllers" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Admin" expanded="True" />
+                <Node name="Admin" expanded="True">
+                  <Node name="AboutUser.cshtml" selected="True" />
+                </Node>
                 <Node name="Shared" expanded="True" />
-              </Node>
-              <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
-                <Node name="js" expanded="True" />
               </Node>
             </Node>
           </Node>

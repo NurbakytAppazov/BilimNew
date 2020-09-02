@@ -30,7 +30,7 @@
                         <td>@Model.User.Email</td>
                     </tr>
                 </table>
-                <table>
+                <table class="user-kurs">
                     <tr>
                         <th colspan="2">Сатып алған курстары</th>
                     </tr>
@@ -47,12 +47,6 @@
                                 <td>Бар</td>
                             </tr>
                         }
-                    }
-                    else
-                    {
-                        <tr>
-                            <td colspan="2" style="color:red">Басқа ешқандай курс сатып алмаған!</td>
-                        </tr>
                     }
                 </table>
             </div>
@@ -78,7 +72,7 @@
                                 </form>
                             </td>
                             <td>@c.Name</td>
-                            @if (Model.UserKurs.FirstOrDefault(x => x.KursId == c.Id) != null )
+                            @if (Model.UserKurs.FirstOrDefault(x => x.KursId == c.Id) != null)
                             {
                                 <td>
                                     <button class="red-btn" type="submit" form="@c.Id">Өшіру</button>
@@ -97,3 +91,11 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        if ($('.user-kurs tr').length === 2) {
+            $('.user-kurs').append(
+                '<tr><td colspan="2" style="color:red">Ешқандай курс сатып алмаған!</td></tr>');
+        }
+    });
+</script>

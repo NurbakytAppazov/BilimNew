@@ -13,9 +13,8 @@
     <div id="courses" class="courses">
         <h2>Менің курстарым</h2>
         <div class="course-items">
-            @*<p class="loader" style="padding: 25px">Загрузка...</p>*@
-            @*@if (Model != null)
-        {*@
+        @if (Model != null)
+        {
             @foreach (var x in Model)
             {
                 foreach (var c in ViewBag.kurses)
@@ -36,13 +35,16 @@
                     }
                 }
             }
-            @*}
-        else
-        {
-            <h1>Rhbjkakf</h1>
-        }*@
+        }
         </div>
     </div>
 </div>
 
->
+<script>
+    $(document).ready(function () {
+        @*if ($('.course-items').is(':empty')) {*@
+        if ($('.course-item').length === 0) {
+            $('.course-items').html('<h1 style="padding: 25px">Еще нет никаких данных!</h1>');
+        }
+    });
+</script>
