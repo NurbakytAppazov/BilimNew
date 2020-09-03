@@ -29,7 +29,6 @@
   <ItemGroup>
     <Content Remove="mono_crash.11a6748113.0.json" />
     <Content Remove="mono_crash.11a6748113.0.json" />
-    <Content Remove="wwwroot\js\visitor.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\avtor\" />

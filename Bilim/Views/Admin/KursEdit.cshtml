@@ -10,7 +10,10 @@
     <form asp-action="KursEdit" class="create" enctype="multipart/form-data">
         <div class="form-blocks">
             <div class="form-block">
-                <input name="kursId" type="hidden" value="@Model.Id">
+                <input type="hidden" asp-for="Id">
+                <input type="hidden" asp-for="BannerUrl">
+                <input type="hidden" asp-for="PhotoUrl">
+                <input type="hidden" asp-for="AvtorImgUrl">
 
                 <label for="kursname">Курс аты:</label>
                 <input asp-for="Name" id="kursname" type="text" value="@Model.Name" required>
@@ -25,7 +28,7 @@
                 <input asp-for="AvtorName" id="avtor" type="text" value="@Model.AvtorName" required>
 
                 <label for="avtor-info">Автор туралы инфо:</label>
-                <textarea asp-for="AvtorInfo" id="avtor-info" rows="5" value="@Model.AvtorInfo" ></textarea>
+                <textarea asp-for="AvtorInfo" id="avtor-info" rows="5" value="@Model.AvtorInfo"></textarea>
                 <br />
 
                 <label>Категория</label>
@@ -64,22 +67,22 @@
                 <textarea asp-for="What3" id="what3" rows="2" value="@Model.What3" ></textarea>
             </div>
             <div class="form-block">
-                <label for="photo">Курс фоны(фото, jpg, png):</label>
-                <input id="photo" onchange="readURL1(this);" name="files" type="file" value="@Model.BannerUrl" accept="jpg/png">
+                <label for="photo">Курс Баннер(фото, jpg, png):</label>
+                <input id="photo" onchange="readURL1(this);" name="banner" type="file"  accept="jpg/png">
                 <div class="img-block">
                     <img id="kursFon" src="~/kurs/@Model.BannerUrl">
                 </div>
                 <br />
 
-                <label for="photo">Курс баннері(фото, jpg, png => 350 x 230):</label>
-                <input id="photo" onchange="readURL2(this);" name="files" type="file" value="@Model.PhotoUrl" accept="jpg/png">
+                <label for="photo">Курс фон(фото, jpg, png => 350 x 230):</label>
+                <input id="photo" onchange="readURL2(this);" name="fon" type="file"  accept="jpg/png">
                 <div class="img-block">
                     <img id="kursBanner" src="~/kurs/@Model.PhotoUrl">
                 </div>
                 <br />
 
                 <label for="photo">Автор суреті(фото, jpg, png):</label>
-                <input id="photo" onchange="readURL3(this);" name="files" type="file" value="@Model.AvtorImgUrl" accept="jpg/png">
+                <input id="photo" onchange="readURL3(this);" name="avtor" type="file"  accept="jpg/png">
                 <div class="img-block">
                     <img id="avtorImg" src="~/kurs/@Model.AvtorImgUrl">
                 </div>

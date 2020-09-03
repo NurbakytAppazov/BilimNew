@@ -128,77 +128,52 @@ namespace Bilim.Controllers
 
             return View(kurs);
         }
+
         [HttpPost]
-        public async Task<IActionResult> KursEdit(int? kursId, Kurs kurs, IFormFileCollection files)
+        public async Task<IActionResult> KursEdit(Kurs kurs, IFormFile banner, IFormFile fon, IFormFile avtor)
         {
-            if (kursId != null)
+            if (banner != null)
             {
-                var thisKurs = db.Kurs.FirstOrDefault(x => x.Id == kursId);
-                int counter = 0;
-                foreach (var file in files)
+                var imgname = DateTime.Now.ToString("MMddHHmmss") + banner.FileName;
+                using (var stream = new FileStream(env.WebRootPath + "/kurs/" + imgname, FileMode.Create))
                 {
-                    counter++;
-                    if (file == null || file.Length == 0)
-                    {
-                        if (counter == 1)
-                        {
-                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
-                        }
-                        if (counter == 2)
-                        {
-                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
-                        }
-                        if (counter == 3)
-                        {
-                            kurs.AvtorImgUrl = thisKurs.AvtorImgUrl;
-                        }
-                    }
-                    else
-                    {
-                        var imgname = DateTime.Now.ToString("MMddHHmmss") + file.FileName;
-                        using (var stream = new FileStream(env.WebRootPath + "/kurs/" + imgname, FileMode.Create))
-                        {
-                            await file.CopyToAsync(stream);
-                        };
-                        if (counter == 1)
-                        {
-                            kurs.BannerUrl = imgname;
-                        }
-                        else if (counter == 2)
-                        {
-                            kurs.PhotoUrl = imgname;
-                        }
-                        else if (counter == 3)
-                        {
-                            kurs.AvtorImgUrl = imgname;
-                        }
-                    }
-                }
-                thisKurs.BannerUrl = kurs.BannerUrl;
-                thisKurs.PhotoUrl = kurs.PhotoUrl;
-                thisKurs.AvtorImgUrl = kurs.AvtorImgUrl;
+                    await banner.CopyToAsync(stream);
+                };
 
-                thisKurs.Name = kurs.Name;
-                thisKurs.Info = kurs.Info;
-                thisKurs.AvtorName = kurs.AvtorName;
-                thisKurs.AvtorInfo = kurs.AvtorInfo;
-                thisKurs.Price = kurs.Price;
-                thisKurs.CreatDate = thisKurs.CreatDate;
+                kurs.BannerUrl = imgname;
 
-                thisKurs.Kimge1 = kurs.Kimge1;
-                thisKurs.Kimge2 = kurs.Kimge2;
-                thisKurs.Kimge3 = kurs.Kimge3;
-                thisKurs.Kimge4 = kurs.Kimge4;
-                thisKurs.Kimge5 = kurs.Kimge5;
-
-                thisKurs.What1 = kurs.What1;
-                thisKurs.What2 = kurs.What2;
-                thisKurs.What3 = kurs.What3;
-
-                //db.Kurs.Update(kurs);
-                await db.SaveChangesAsync();
             }
-            return RedirectToAction("KursList", "Admin");
+
+            //photo
+            if (fon != null)
+            {
+                var imgname = DateTime.Now.ToString("MMddHHmmss") + fon.FileName;
+                using (var stream = new FileStream(env.WebRootPath + "/kurs/" + imgname, FileMode.Create))
+                {
+                    await fon.CopyToAsync(stream);
+                };
+
+                kurs.PhotoUrl = imgname;
+
+            }
+
+            //avatar
+            if (avtor != null)
+            {
+                var imgname = DateTime.Now.ToString("MMddHHmmss") + avtor.FileName;
+                using (var stream = new FileStream(env.WebRootPath + "/kurs/" + imgname, FileMode.Create))
+                {
+                    await avtor.CopyToAsync(stream);
+                };
+
+                kurs.AvtorImgUrl = imgname;
+
+            }
+
+            db.Kurs.Update(kurs);
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("KursEdit", new { Id = kurs.Id });
         }
 
         public IActionResult DeleteKurs(int? Id)

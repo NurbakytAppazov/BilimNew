@@ -179,8 +179,6 @@ namespace Bilim.Controllers
 
 
 
-
-
         [HttpGet]
         public IActionResult ForgotPassword()
         {
