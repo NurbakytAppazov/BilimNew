@@ -31,27 +31,50 @@
                 <textarea asp-for="AvtorInfo" id="avtor-info" rows="5" value="@Model.AvtorInfo"></textarea>
                 <br />
 
-                <label>Категория</label>
-                <select>
-                    <option>Fizika</option>
-                    <option>Mathematic</option>
-                    <option>Fizika</option>
+                <label id="ctName1">Категория1</label>
+                <select id="ctName1" name="ctName1">
+                    @foreach (var c in ViewBag.ctList1)
+                    {
+                        if (c.Id == Model.CategoryId1)
+                        {
+                            <option value="@c.Name" selected>@c.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@c.Name">@c.Name</option>
+                        }
+                    }
                 </select>
-                <p></p>
-
-                <ul>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-                    <li>dasdasdasd</li>
-
-                </ul>
+                <br />
+                <label id="ctName2">Категория2</label>
+                <select id="ctName2" name="ctName2">
+                    @foreach (var c in ViewBag.ctList2)
+                    {
+                        if (c.Id == Model.CategoryId2)
+                        {
+                            <option value="@c.Name" selected>@c.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@c.Name">@c.Name</option>
+                        }
+                    }
+                </select>
+                <br />
+                <label id="ctName3">Категория3</label>
+                <select id="ctName3" name="ctName3">
+                    @foreach (var c in ViewBag.ctList3)
+                    {
+                        if (c.Id == Model.CategoryId3)
+                        {
+                            <option value="@c.Name" selected>@c.Name</option>
+                        }
+                        else
+                        {
+                            <option value="@c.Name">@c.Name</option>
+                        }
+                    }
+                </select>
             </div>
             <div class="form-block">
                 <label for="kurs-info">Курс кімдерге арналады:</label>

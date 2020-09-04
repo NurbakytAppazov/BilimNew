@@ -252,13 +252,18 @@ namespace Bilim.Controllers
         public IActionResult KursEdit(int Id)
         {
             var kurs = db.Kurs.FirstOrDefault(p => p.Id == Id);
+
+            ViewBag.ctList1 = db.Categories.ToList();
+            ViewBag.ctList2 = db.Categories2.ToList();
+            ViewBag.ctList3 = db.Categories3.ToList();
+
             ViewBag.KursVideos = db.KursVideos.Where(x => x.KursId == Id);
 
             return View(kurs);
         }
 
         [HttpPost]
-        public async Task<IActionResult> KursEdit(Kurs kurs, IFormFile banner, IFormFile fon, IFormFile avtor)
+        public async Task<IActionResult> KursEdit(Kurs kurs, IFormFile banner, IFormFile fon, IFormFile avtor, string ctName1, string ctName2, string ctName3)
         {
             if (banner != null)
             {
@@ -267,11 +272,8 @@ namespace Bilim.Controllers
                 {
                     await banner.CopyToAsync(stream);
                 };
-
                 kurs.BannerUrl = imgname;
-
             }
-
             //photo
             if (fon != null)
             {
@@ -280,11 +282,8 @@ namespace Bilim.Controllers
                 {
                     await fon.CopyToAsync(stream);
                 };
-
                 kurs.PhotoUrl = imgname;
-
             }
-
             //avatar
             if (avtor != null)
             {
@@ -293,15 +292,19 @@ namespace Bilim.Controllers
                 {
                     await avtor.CopyToAsync(stream);
                 };
-
                 kurs.AvtorImgUrl = imgname;
-
             }
+            int ctId1 = db.Categories.FirstOrDefault(x => x.Name == ctName1).Id;
+            int ctId2 = db.Categories2.FirstOrDefault(x => x.Name == ctName2).Id;
+            int ctId3 = db.Categories3.FirstOrDefault(x => x.Name == ctName3).Id;
+            kurs.CategoryId1 = ctId1;
+            kurs.CategoryId2 = ctId2;
+            kurs.CategoryId3 = ctId3;
 
             db.Kurs.Update(kurs);
             await db.SaveChangesAsync();
 
-            return RedirectToAction("KursEdit", new { Id = kurs.Id });
+            return RedirectToAction("KursList");
         }
 
         public IActionResult DeleteKurs(int? Id)

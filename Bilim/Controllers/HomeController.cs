@@ -33,7 +33,9 @@ namespace Bilim.Controllers
         {
             var list = db.Kurs.ToList();
 
-            ViewBag.Cat = db.Categories.Select(p => p.Name).ToList();
+            ViewBag.ctList1 = db.Categories.ToList();
+            ViewBag.ctList2 = db.Categories2.ToList();
+            ViewBag.ctList3 = db.Categories3.ToList();
 
             return View(list);
         }
@@ -41,12 +43,15 @@ namespace Bilim.Controllers
         [HttpPost]
         public IActionResult AllKurs(string cat1, string cat2, string cat3)
         {
-            var list = db.Kurs.ToList();
+            var ctId1 = db.Categories.FirstOrDefault(x => x.Name == cat1).Id;
+            var ctId2 = db.Categories2.FirstOrDefault(x => x.Name == cat2).Id;
+            var ctId3 = db.Categories3.FirstOrDefault(x => x.Name == cat3).Id;
 
-            if(cat1 != "qw")
-            {
-                return Content("String !=");
-            }
+            var list = db.Kurs.Where(x => x.CategoryId1 == ctId1 && x.CategoryId2 == ctId2 && x.CategoryId3 == ctId3).ToList();
+
+            ViewBag.ctList1 = db.Categories.ToList();
+            ViewBag.ctList2 = db.Categories2.ToList();
+            ViewBag.ctList3 = db.Categories3.ToList();
 
             return View(list);
         }

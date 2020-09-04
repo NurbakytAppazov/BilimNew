@@ -608,6 +608,9 @@
    }
 
 
+    .form-filter {
+        padding-top: 50px;
+    }
    .courses{
       padding-top: 50px;
       padding-bottom: 70px;
@@ -640,6 +643,17 @@
     }
 }
 @media  (max-width: 640px){
+
+
+    .form-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-filter > *{
+        width: 70%;
+        margin-bottom: 15px;
+    }
+
     .main {
         height: 450px;
         padding-top: 120px;
@@ -710,6 +724,9 @@
    }
 }
 @media  (max-width: 550px){
+    .form-filter > * {
+        width: 90%;
+    }
    .about-list img{
       width: 50px;
       margin-right: 40px;
@@ -761,6 +778,9 @@
    }
 }
 @media  (max-width: 425px){
+    .form-filter > * {
+        width: 100%;
+    }
     .main {
         padding-top: 100px;
     }
