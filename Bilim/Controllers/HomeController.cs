@@ -33,7 +33,7 @@ namespace Bilim.Controllers
         {
             var list = db.Kurs.ToList();
 
-            ViewBag.Cat = db.Categories.Select(p => p.CategoryName).ToList();
+            ViewBag.Cat = db.Categories.Select(p => p.Name).ToList();
 
             return View(list);
         }

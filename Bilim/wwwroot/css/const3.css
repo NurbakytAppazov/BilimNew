@@ -215,15 +215,19 @@
 }
 
 /* ----------------CONTENT------------------ */
-
+ 
 .content, .sidebar{
   height: 100vh;
-  position: fixed;
-  top: 70px;
+}
+.sidebar {
+    height: 100vh;
+    position: fixed;
+    top: 70px;
 }
 .content{
   width: 85%;
-  right: 0;
+  padding-top: 70px;
+  margin-left: 15%;
   overflow-y: scroll;
   background-color: var(--white-color);
 }
@@ -288,18 +292,13 @@
 @media  (max-width: 1024px){
   .content{
      width: 80%;
+     margin-left: 20%;
   }
   .sidebar{
      width: 20%;
   }
 }
 @media  (max-width: 768px){
-  .content{
-     width: 80%;
-  }
-  .sidebar{
-     width: 20%;
-  }
   .sidebar a{
      font-size: 13px;
   }
@@ -326,6 +325,7 @@
 @media  (max-width: 640px){
   .content{
      width: 100%;
+     margin-left: 0;
   }
   .sidebar{
      display: none;

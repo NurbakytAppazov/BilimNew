@@ -82,6 +82,134 @@ namespace Bilim.Controllers
             return RedirectToAction("UserList");
         }
 
+        //Category Actions
+
+        public async Task<IActionResult> CategoryList()
+        {
+            CategoryView cv = new CategoryView
+            {
+                Categories = await db.Categories.ToListAsync(),
+                Categories2 = await db.Categories2.ToListAsync(),
+                Categories3 = await db.Categories3.ToListAsync(),
+            };
+
+            return View(cv);
+        }
+        public IActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddCategory(string ctmodel, string ctName)
+        {
+            if (ctmodel == "Category1")
+            {
+                Category ct1 = new Category
+                {
+                    Name = ctName
+                };
+                await db.Categories.AddAsync(ct1);
+            }
+            else if (ctmodel == "Category2")
+            {
+                Category2 ct2 = new Category2
+                {
+                    Name = ctName
+                };
+                await db.Categories2.AddAsync(ct2);
+            }
+            else if (ctmodel == "Category3")
+            {
+                Category3 ct3 = new Category3
+                {
+                    Name = ctName
+                };
+                await db.Categories3.AddAsync(ct3);
+            }
+            await db.SaveChangesAsync();
+            return RedirectToAction("CategoryList");
+        }
+
+        public async Task<IActionResult> EditCategory(string ct)
+        {
+            ViewBag.ctmodel = ct;
+            if (ct == "category1")
+            {
+                ViewBag.ctList = await db.Categories.ToListAsync();
+            }
+            else if (ct == "category2")
+            {
+                ViewBag.ctList = await db.Categories2.ToListAsync();
+            }
+            else if (ct == "category3")
+            {
+                ViewBag.ctList = await db.Categories3.ToListAsync();
+            }
+            
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> EditCategory(string ctmodel, int[] ctId, string[] ctNames)
+        {
+            if (ctmodel == "category1")
+            {
+                int counter = 0;
+                foreach(var ctName in ctNames)
+                {
+                    var ct = await db.Categories.FirstOrDefaultAsync(x => x.Id == ctId[counter]);
+                    ct.Name = ctName;
+                    counter++;
+                }
+            }
+            else if (ctmodel == "category2")
+            {
+                int counter = 0;
+                foreach (var ctName in ctNames)
+                {
+                    var ct2 = await db.Categories2.FirstOrDefaultAsync(x => x.Id == ctId[counter]);
+                    ct2.Name = ctName;
+                    counter++;
+                }
+            }
+            else if (ctmodel == "category3")
+            {
+                int counter = 0;
+                foreach (var ctName in ctNames)
+                {
+                    var ct3 = await db.Categories3.FirstOrDefaultAsync(x => x.Id == ctId[counter]);
+                    ct3.Name = ctName;
+                    counter++;
+                }
+            }
+
+            await db.SaveChangesAsync();
+            return RedirectToAction("CategoryList");
+        }
+        public IActionResult DeleteCategory(int id, string ctmodel)
+        {
+            if (id != 0)
+            {
+                if(ctmodel == "category1")
+                {
+                    var ct = db.Categories.FirstOrDefault(x => x.Id == id);
+                    db.Categories.Remove(ct);
+                }
+                else if (ctmodel == "category2")
+                {
+                    var ct = db.Categories2.FirstOrDefault(x => x.Id == id);
+                    db.Categories2.Remove(ct);
+                }
+                else if (ctmodel == "category3")
+                {
+                    var ct = db.Categories3.FirstOrDefault(x => x.Id == id);
+                    db.Categories3.Remove(ct);
+                }
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("CategoryList", "Admin");
+        }
+        //Category Actions
 
 
 
@@ -325,14 +453,14 @@ namespace Bilim.Controllers
         [HttpPost]
         public async Task<IActionResult> FreeVideoAdd(Category model)
         {
-            Category c = new Category { CategoryName = model.CategoryName };
-            
-                db.Categories.Add(c);
+            Category c = new Category { Name = model.Name };
 
-                await db.SaveChangesAsync();
+            db.Categories.Add(c);
 
-                return RedirectToAction("FreeVideoList");
-            
+            await db.SaveChangesAsync();
+
+            return RedirectToAction("FreeVideoList");
+
 
         }
     }

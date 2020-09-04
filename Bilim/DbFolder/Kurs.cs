@@ -27,5 +27,9 @@ namespace Bilim.DbFolder
         public string AvtorName { get; set; }
         public string AvtorInfo { get; set; }
         public string AvtorImgUrl { get; set; }
+
+        public int CategoryId1 { get; set; }
+        public int CategoryId2 { get; set; }
+        public int CategoryId3 { get; set; }
     }
 }

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "EditCategory";
+    int counter=0;
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<div class="content">
+    <form asp-action="EditCategory" class="create" enctype="multipart/form-data">
+        <div class="form-blocks">
+            <div class="form-block">
+                <h1>Категория өзгерту</h1>
+                <input name="ctmodel" type="hidden" value="@ViewBag.ctmodel" />
+                @foreach (var c in ViewBag.ctList)
+                {
+                    counter++;
+                    <input name="ctId" type="hidden" value="@c.Id" required>
+                    <label for="@counter">Категория @counter:</label>
+                    <input name="ctNames" id="@counter" type="text" value="@c.Name" required>
+                }
+            </div>
+        </div>
+        <div class="btn-block">
+            <a href="/Admin/CategoryList">Болдырмау</a>
+            <button type="submit">Сақтау</button>
+        </div>
+    </form>
+</div>
+
