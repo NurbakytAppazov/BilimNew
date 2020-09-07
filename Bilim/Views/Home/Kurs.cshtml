@@ -21,15 +21,15 @@
 </div>
 <div class="header">
     <div class="go-back">
-        <i class="fa fa-arrow-left"></i>
-        <a class="go-back" href="/Home/Visitor#courses">Курстар</a>
+        <i class="fa fa-arrow-left"  style="color:white!important;"></i>
+        <a class="go-back" href="/Home/Visitor#courses"  style="color:white!important;">Курстар</a>
         <!-- <img src="img/logo.png" alt="BeautyOnline"> -->
         <!-- Beauty Online -->
     </div>
     <div class="nav">
-        <a href="#" class="main-nav fix-active">Басты бет</a>
-        <a href="#" class="teacher-nav">Спикер жайлы</a>
-        <a href="#" class="about-nav">Курс жайлы</a>
+        <a href="#" class="main-nav fix-active" >Басты бет</a>
+        <a href="#" class="teacher-nav"  style="color:white!important;">Спикер жайлы</a>
+        <a href="#" class="about-nav"  style="color:white!important;">Курс жайлы</a>
         @*<a href="#" class="packages-nav">Пакеттер</a>*@
     </div>
     <a href="/Account/Profil" class="login">
@@ -44,9 +44,9 @@
 <div class="content">
     <div id="main" class="main" style="background-image: url('/kurs/@Model.PhotoUrl')">
         <div class="main-text">
-            <h2>@Model.Name</h2>
-            <p>@Model.Info</p>
-            <a href="#" class="btn buy-btn">Сатып алу</a>
+            <h2  style="color:white!important;">@Model.Name</h2>
+            <p  style="color:white!important;">@Model.Info</p>
+            <a href="#" class="btn buy-btn"  style="color:white!important;">Сатып алу</a>
         </div>
         @*<div class="main-bg" style="background-image: url(/img/kurs-about.png);"></div>*@
     </div>
@@ -57,8 +57,8 @@
         <div class="modal-window">
             <div class="modal-section">
                 <div class="close-mod"><span></span></div>
-                <p>Бұл курсты сатып алу үшін WhatsApp нөмеріне жазыңыз.</p>
-                <a href="https://wa.me/77056644647" class="submit">Жазу</a>
+                <p  style="color:black!important;">Бұл курсты сатып алу үшін WhatsApp нөмеріне жазыңыз.</p>
+                <a href="https://wa.me/77056644647"  style="color:vlack!important;" class="submit">Жазу</a>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
     @if (ViewBag.FreeVideos != null)
     {
         <div id="courses" class="courses">
-            <h2>Тегін видео-сабақтар</h2>
+            <h2  style="color: #2d76fa;">Тегін видео-сабақтар</h2>
             <div class="course-items">
                 @foreach (var c in ViewBag.FreeVideos)
                 {
@@ -89,8 +89,8 @@
             <img src="/kurs/@Model.AvtorImgUrl">
         </div>
         <div class="teacher-text">
-            <h2>@Model.AvtorName</h2>
-            <p>@Model.AvtorInfo</p>
+            <h2 style="color: black;">@Model.AvtorName</h2>
+            <p style="color: #2d76fa;">@Model.AvtorInfo</p>
         </div>
     </div>
 
@@ -100,7 +100,7 @@
                 <div class="icon">
                     <i class="fa fa-users"></i>
                 </div>
-                <h2>КУРС КІМДЕРГЕ АРНАЛАДЫ?</h2>
+                <h2 style="color: black">КУРС КІМДЕРГЕ АРНАЛАДЫ?</h2>
                 <ul>
                     @*<li>15 минутта өзін бояндырып үйренгісі келетін кез-келген қыз-келіншектерге;</li>
                         <li>Кез-келген жаста әдемі болып, бет күтіміне ерекше мән беретін жандарға;</li>
@@ -117,7 +117,7 @@
                 <div class="icon">
                     <i class="fa fa-book"></i>
                 </div>
-                <h2>КУРС ҚАЛАЙ ӨТЕДІ?</h2>
+                <h2 style="color: black">КУРС ҚАЛАЙ ӨТЕДІ?</h2>
                 <ul>
                     <li>	Курсты сатып алған соң, мұғалімнің жеке профилі ашылады. </li>
                     <li>	Қажет болған жағдайда Телеграмдағы мұғаліммен сұрақ-жауап чатына қосылып, сұрақтарға жауап алуға болады</li>
@@ -127,7 +127,7 @@
             </div>
         </div>
         <div class="learn">
-            <h2>Курс барысында сіз:</h2>
+            <h2 style="color: black">Курс барысында сіз:</h2>
             <div class="learn-blocks">
                 <div class="learn-block">
                     <div class="img-block">

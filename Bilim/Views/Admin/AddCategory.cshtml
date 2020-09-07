@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "AddCategory";
+}
+
+<link href="~/css/kursEdit.css" rel="stylesheet">
+
+<div class="content">
+    <form asp-action="AddCategory" class="create" enctype="multipart/form-data">
+        <div class="form-blocks">
+            <div class="form-block">
+                <h1>Категория қосу</h1>
+
+                <select name="ctmodel">
+                    <option value="Category1">Category1</option>
+                    <option value="Category2">Category2</option>
+                    <option value="Category3">Category3</option>
+                </select>
+
+                <label for="title">Категория аты:</label>
+                <input name="ctName" id="title" type="text" required>
+            </div>
+        </div>
+        <div class="btn-block">
+            <a href="/Admin/CategoryList">Болдырмау</a>
+            <button type="submit">Сақтау</button>
+        </div>
+    </form>
+</div>
+

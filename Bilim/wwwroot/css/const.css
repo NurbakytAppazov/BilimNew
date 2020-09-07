@@ -2,7 +2,7 @@
 :root {
     --main-color: #2d76fa;
     --white-color: #fff;
-    --brown-color: #8003a8;
+    --brown-color: #fff;
     --grey-color: #968c88;
     --pink-color: #f6f7f8;
     --red-color: #bb6054;
@@ -71,7 +71,7 @@
 .logo{
    width: 130px;
    height: 100%;
-   background-image: url(../img/bilim-logo-blue.png);
+   background-image: url(../visit/b-white.png);
    background-repeat: no-repeat;
    background-size: contain;
    background-position-y: center;

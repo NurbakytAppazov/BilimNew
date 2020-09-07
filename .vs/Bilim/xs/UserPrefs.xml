@@ -1,6 +1,6 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{D192647D-0428-44AA-9A73-4C267B20CDF9}|Default">
   <MonoDevelop.Ide.ItemProperties.Bilim PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Bilim/Controllers/HomeController.cs">
     <Files>
       <File FileName="Bilim/Controllers/AdminController.cs" Line="307" Column="47" />
       <File FileName="Bilim/Views/Admin/KursEdit.cshtml" Line="68" Column="54" />

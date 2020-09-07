@@ -25,15 +25,15 @@
         @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@
         <!-- Bilim Online -->
     </div>
-    <div class="nav">
-        <a href="#" class="main-nav fix-active">Басты бет</a>
-        <a href="#" class="about-nav">Біз жайлы</a>
-        <a href="#" class="course-nav">Курстар</a>
-        <a href="#" class="more-nav">Контакты</a>
+    <div class="nav" >
+        <a href="#" class="main-nav fix-active" style="color:white!important;">Басты бет</a>
+        <a href="#" class="about-nav" style="color:white!important;">Біз жайлы</a>
+        <a href="#" class="course-nav" style="color:white!important;">Курстар</a>
+        <a href="#" class="more-nav" style="color:white!important;">Контакты</a>
     </div>
-    <a href="/Account/Profil" class="login">
-        <span>Жеке кабинет</span>
-        <i class="fa fa-user-o"></i>
+    <a href="/Account/Profil" class="login" >
+        <span style="color:white!important;">Жеке кабинет</span>
+        <i class="fa fa-user-o" style="color:white!important;"></i>
     </a>
     <div class="burger">
         <span></span>
@@ -42,7 +42,7 @@
 <div class="content">
     <div id="main" class="main">
         <div class="main-text">
-            <h1>B:USTAZ <br> Online</h1>
+            <h1 style="color:white!important;">B:USTAZ <br> Online</h1>
             <p>Мектеп ұстаздарының кәсіби біліктілігін арттыруға арналған  онлайн-курстар</p>
             <span class="select-btn">Курсты таңдау</span>
         </div>
@@ -50,7 +50,7 @@
     <div id="about" class="about">
         <div class="about-text">
             <h2>«B:USTAZ»</h2>
-            <p>
+            <p style="color:black">
                 Ұстаздардың кәсіби біліктілігін арттыру орталығы төменгі,
                 орта және жоғары мектеп ұстаздарына замануи оқуыту әдістері мен жаңа
                 технологиялық құралдарды үйретуді мақсат етеді. Қазақ тіліндегі
@@ -61,10 +61,10 @@
 
         </div>
         <div class="about-img">
-            <img src="~/img/person.jpg" alt="">
+            <img src="/visit/avtor.jpg" alt="">
         </div>
     </div>
-    <div class="school" style="background-image:url('/img/6.jpg')">
+    <div class="school" style="background-image:url('/visit/2.jpg')">
         <div class="school-block">
             <div class="school-text">
                 <p>«B:USTAZ» Online сандармен</p>
@@ -106,11 +106,11 @@
         </div>
     </div>
     <div class="about-bottom">
-        <h2><span>«B:USTAZ» Online</span>  артықшылықтары</h2>
+        <h2 style="color:black!important;"><span style="color:black!important;">«B:USTAZ» Online</span>  артықшылықтары</h2>
         <div class="about-list-block">
             <div class="about-list">
                 <div>
-                    <img src="~/img/icon6/111.svg">
+                    <img src="~/img/icon6/111.svg" style="width:43px!important;">
                     <span>Қазақстанның білікті ұстаздарымен тәжірибе алмасу</span>
                 </div>
                 <div>
@@ -138,7 +138,7 @@
             </div>
         </div>
     </div>
-    <div id="courses" class="courses" style="background-image:url('/img/10.png')">
+    <div id="courses" class="courses" style="background-image:url('/visit/3.jpg')">
         <h2>Онлайн-курстар</h2>
         <div class="course-items">
             @foreach (var c in Model)
@@ -158,10 +158,11 @@
                                     <i class="fa fa-unlock"></i>
                                     Тегін курс
                                 </span>*@
-                            <span class="isfree isfree-red">
+
+                            @*<span class="isfree isfree-red">
                                 <i class="fa fa-lock"></i>
                                 Ақылы курс
-                            </span>
+                            </span>*@
                             <a href="/Home/Kurs/@c.Id">Курс жайлы толығырақ</a>
                         </div>
                     </div>

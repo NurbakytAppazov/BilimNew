@@ -1,0 +1,113 @@
+﻿@model Bilim.ViewModels.AdminViewModels.CategoryView
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewData["Title"] = "CategoryList";
+    int counter1 = 0, counter2 = 0, counter3 = 0;
+}
+
+<link href="~/css/aboutStud.css" rel="stylesheet">
+
+<style>
+    .table-header > a{
+        padding: 3px 10px;
+        background-color: white;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-left: 15px;
+    }
+    a.remove {
+        color: red;
+    }
+</style>
+
+<div class="content">
+    <div class="main">
+        <a href="/Admin/AddCategory" class="back">
+            <i class="fa fa-plus"></i>
+            <span>Категория қосу</span>
+        </a>
+        <div class="tables">
+            <div class="stud-table">
+                <table>
+                    <tr>
+                        <th class="table-header" colspan="3">
+                            <span>Категория 1</span>
+                            <a href="/Admin/EditCategory?ct=category1">Өзгерту</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>Аты</th>
+                        <th>Жою</th>
+                        @*<th>Email</th>*@
+                    </tr>
+                    @foreach (var c in Model.Categories)
+                    {
+                        counter1++;
+                        <tr>
+                            <td>@counter1</td>
+                            <td>@c.Name</td>
+                            <td><a class="remove" href="/Admin/DeleteCategory/@c.Id?ctmodel=category1">Жою</a></td>
+                        </tr>
+                    }
+                </table>
+                <table>
+                    <tr>
+                        <th class="table-header" colspan="3">
+                            <span>Категория 2</span>
+                            <a href="/Admin/EditCategory?ct=category2">Өзгерту</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>Аты</th>
+                        <th>Жою</th>
+                        @*<th>Email</th>*@
+                    </tr>
+                    @foreach (var c in Model.Categories2)
+                    {
+                        counter2++;
+                        <tr>
+                            <td>@counter2</td>
+                            <td>@c.Name</td>
+                            <td><a class="remove" href="/Admin/DeleteCategory/@c.Id?ctmodel=category2">Жою</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            <div class="dostup-table">
+                <table>
+                    <tr>
+                        <th class="table-header" colspan="3">
+                            <span>Категория 3</span>
+                            <a href="/Admin/EditCategory?ct=category3">Өзгерту</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>№</th>
+                        <th>Аты</th>
+                        <th>Жою</th>
+                        @*<th>Email</th>*@
+                    </tr>
+                    @foreach (var c in Model.Categories3)
+                    {
+                        counter3++;
+                        <tr>
+                            <td>@counter3</td>
+                            <td>@c.Name</td>
+                            <td><a class="remove" href="/Admin/DeleteCategory/@c.Id?ctmodel=category3">Жою</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        if ($('.user-kurs tr').length === 2) {
+            $('.user-kurs').append(
+                '<tr><td colspan="2" style="color:red">Ешқандай курс сатып алмаған!</td></tr>');
+        }
+    });
+</script>
