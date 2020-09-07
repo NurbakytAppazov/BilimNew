@@ -1,27 +1,22 @@
 ﻿<Properties GitUserInfo="UsingGIT" StartupConfiguration="{D192647D-0428-44AA-9A73-4C267B20CDF9}|Default">
   <MonoDevelop.Ide.ItemProperties.Bilim PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Bilim/Controllers/HomeController.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="Bilim/Controllers/AdminController.cs" Line="307" Column="47" />
-      <File FileName="Bilim/Views/Admin/KursEdit.cshtml" Line="68" Column="54" />
-      <File FileName="Bilim/Views/Home/AllKurs.cshtml" Line="4" Column="46" />
-      <File FileName="Bilim/Controllers/HomeController.cs" Line="54" Column="55" />
-      <File FileName="Bilim/wwwroot/css/index.css" Line="782" Column="18" />
+      <File FileName="Bilim/Views/Home/Visitor.cshtml" Line="93" Column="9" />
+      <File FileName="Bilim/wwwroot/css/index.css" Line="782" Column="32" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Bilim" expanded="True">
             <Node name="Bilim" expanded="True">
-              <Node name="Controllers" expanded="True">
-                <Node name="HomeController.cs" selected="True" />
-              </Node>
-              <Node name="ViewModels" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
               </Node>
               <Node name="wwwroot" expanded="True">
-                <Node name="css" expanded="True" />
+                <Node name="css" expanded="True">
+                  <Node name="index.css" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
