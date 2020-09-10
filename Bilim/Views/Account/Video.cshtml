@@ -49,15 +49,16 @@
                 <h3>@c.VideoName</h3>
                 <p>@c.Info</p>
             </div>
-        </a>                }
+        </a>    }
 
-                    }
-            <p>Ақылы курстар</p>
-            @foreach (var c in ViewBag.OtherVideos)
+}
+
+
+            @if (ViewBag.Status == 1)
             {
-                if (c.Free != true)
-                {
-        <a href="/Home/Kurs/@c.Kurs.Id" class="video-title">
+        @foreach (var c in ViewBag.OtherVideos)
+        {
+        <a href="/Account/Video/@c.Kurs.Id?videoId=@c.Id" class="video-title">
             <div class="baner">
                 <img src="~/kursvideo/@c.PhotoUrl">
             </div>
@@ -65,9 +66,25 @@
                 <h3>@c.VideoName</h3>
                 <p>@c.Info</p>
             </div>
-        </a>                }
+        </a>} }
+                    else
+                    {
+                        <p>Ақылы курстар</p>
+                                        @foreach (var c in ViewBag.OtherVideos)
+                                        {
+                        <a href="/Home/Kurs/@c.Kurs.Id" class="video-title">
+                            <div class="baner">
+                                <img src="~/kursvideo/@c.PhotoUrl">
+                            </div>
+                            <div class="title-text">
+                                <h3>@c.VideoName</h3>
+                                <p>@c.Info</p>
+                            </div>
+                        </a>        }
 
-                    }
+                                    }
+
+
         </div>
     </div>
 

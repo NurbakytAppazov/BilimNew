@@ -146,15 +146,21 @@ namespace Bilim.Controllers
         [Authorize]
         public async Task<IActionResult> Video(int id, int videoId = 0)
         {
-            if (User.Identity.IsAuthenticated)
+            var user = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            var st = db.UserKurs.Where(p => p.UserId == user.Id && p.KursId == id).FirstOrDefault();
+
+            if(st != null)
             {
-                if (User.IsInRole("Admin"))
-                {
-                    return RedirectToAction("UserList", "Admin");
-                    //return RedirectToAction("UserList", "Admin", new { page = 1 });
-                }
-                else
-                {
+                ViewBag.Status = 1;
+            }
+            else
+            {
+                ViewBag.Status = 2;
+            }
+
+                    
+
                     var kurs = await db.Kurs.FirstOrDefaultAsync(x => x.Id == id);
                     KursVideo video;
                     List<KursVideo> otherVideos;
@@ -171,11 +177,18 @@ namespace Bilim.Controllers
                     ViewBag.OtherVideos = otherVideos;
 
                     return View(video);
-                }
-            }
-            return RedirectToAction("Login");
+           
         }
 
+
+
+        public IActionResult News()
+        {
+            var list = db.Kurs.Where(p => p.CreatDate >= DateTime.Now).ToList();
+
+
+            return View(list);
+        }
 
 
 
@@ -184,6 +197,7 @@ namespace Bilim.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)

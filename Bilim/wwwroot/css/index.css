@@ -91,15 +91,15 @@
    color:white;
    font-size:18px;
 }
-.main-text > span{
+.main-text > span {
     cursor: pointer;
-    font-size: 15px;
+    font-size: 23px;
     letter-spacing: 2px;
-    background-color: var(--main-color);
+    background-color: #f8b01d;
     color: var(--white-color);
-    padding: 20px 60px;
+    padding: 15px 40px;
     border-radius: 40px;
-    box-shadow: 0 0 10px var(--main-color);
+    box-shadow: 0 0 10px #f8b01d;
     transition: 0.3s;
 }
 .main-text > span:hover{
@@ -109,6 +109,7 @@
    background-color: var(--brown-color);
    box-shadow: 0 0 10px var(--brown-color);
 }
+
 /* ----------------------- */
 .about{
    width: 100%;
@@ -220,12 +221,12 @@
    margin-bottom: 20px;
 }
 .about-list img{
-   width: 60px;
+   width: 120px;
    margin-right: 50px;
    filter: invert(1);
 }
 .about-list span{
-   font-size: 14px;
+   font-size: 22px;
    letter-spacing: 1px;
 }
 
@@ -269,7 +270,7 @@
    width: 100%;
 }
 .school-text{
-   padding-top: 100px;
+   padding-top: 40px;
    position: relative;
 }
 .school-text > p{
@@ -313,9 +314,9 @@
 }
 .circle-number{
    position: absolute;
-   top: 30px;
+   top: 0px;
    left: 35px;
-   font-size: 26px;
+   font-size: 60px;
    letter-spacing: 1px;
 }
 .bottom-block > p{
@@ -329,11 +330,12 @@
 
 /* –––––––––––––––COURSES–––––––––––––– */
 .courses{
+
    width: 100%;
    display: flex;
    flex-direction: column;
    align-items: center;
-   padding-top: 100px;
+   padding-top: 33px;
    padding-bottom: 50px;
    background-color: var(--pink-color);
 }
@@ -355,7 +357,7 @@
 .course-item {
     width: 31%;
     box-shadow: 0 0 15px #666;
-    border-radius: 3px;
+    border-radius: 18px;
     overflow: hidden;
     text-decoration: none;
     margin-bottom: 35px;
@@ -419,7 +421,7 @@
     text-align: center;
     margin-bottom: 0;
     border: 1px solid var(--brown-color);
-    border-radius: 3px;
+    border-radius: 12px;
     transition: 0.3s;
 }
 .course-text > a:hover{
@@ -451,14 +453,14 @@
 }
 
 .all-course-btn {
-    padding: 15px;
-    background-color: var(--main-color);
+    padding: 15px 30px 15px 30px;
+    background-color: #f8b01d;
     box-shadow: 0 0 10px var(--main-color);
     color: var(--white-color);
     text-decoration: none;
     text-align: center;
     margin: 0 auto;
-    border-radius: 3px;
+    border-radius: 12px;
     transition: 0.2s;
 }
 .all-course-btn:hover{
@@ -640,7 +642,7 @@
       margin-bottom: 10px;
    }
    .circle-number{
-      top: 27px;
+      top: -3px;
       left: 32px;
    }
 
@@ -842,10 +844,10 @@
    }*/
 
    .about-bottom > h2{
-      font-size: 22px;
+      font-size: 32px;
    }
    .about-bottom > h2 span{
-      font-size: 26px;
+      font-size: 33px;
       letter-spacing: 0;
    }
    .about-list img{

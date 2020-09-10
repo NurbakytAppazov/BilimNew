@@ -15,6 +15,7 @@
 	justify-content: space-around;
 }
 .vhod{
+	border-radius:16px;
 	width: 40%;
 	padding: 25px 50px;
 	display: -webkit-flex;

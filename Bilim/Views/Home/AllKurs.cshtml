@@ -20,7 +20,7 @@
         <i class="fa fa-user-o"></i>
     </a>
 </div>
-<div class="header">
+<div class="header" style=" box-shadow: 0 1px 10px var(--main-color);">
     <div class="logo">
         @*<img src="~/img/bilim-logo-blue.png" alt="BilimOnline">*@
         <!-- Bilim Online -->
@@ -65,7 +65,7 @@
 
 
 <div class="content">
-    <div id="courses" class="courses">
+    <div id="courses" class="courses" style="padding-top:105px;">
 
         <form asp-action="AllKurs" class="form-filter">
             <select name="cat1">
@@ -121,7 +121,9 @@
     </div>
 </div>
 
-<script src="~/js/visitor.js"></script>
+
+
+<script src="/js/visitor.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.burger').hover(function () {

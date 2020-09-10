@@ -17,7 +17,7 @@
    box-sizing: border-box;
    color: var(--main-color);
    font-family: MyOpenSans;
-   font-size: 16px;
+   font-size: 18px;
 }
 .wrap{
    width: 100%;
@@ -265,7 +265,7 @@
    margin-left: 10px;
 }
 .contact-phone > a{
-   font-size: 14px;
+   font-size: 20px;
    text-decoration: none;
 }
 .contact-phone > a:hover{
@@ -321,7 +321,7 @@
 
 
 .app-play{
-    width: 150px;
+    width: 182px;
 }
 
 /* -----fCenter----- */

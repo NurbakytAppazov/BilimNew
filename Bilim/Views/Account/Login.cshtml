@@ -1,7 +1,5 @@
 @model Bilim.ViewModels.AccountViewModels.LoginViewModel
-@{
-    ViewData["Title"] = "Кіру";
-}
+@{ ViewData["Title"] = "Кіру"; }
 
 <link href="~/css/login.css" rel="stylesheet">
 
@@ -19,17 +17,26 @@
 <div class="content">
     <form class="vhod" asp-action="Login">
         <h2>Жүйеде болсаңыз</h2>
-        <input type="text" asp-for="PhoneNumber" placeholder="Телефон номері" required>
+        <input type="text" id="phone" asp-for="PhoneNumber" placeholder="Телефон номері" required>
         <input type="password" asp-for="Password" placeholder="Құпиясөз" required>
 
         <div class="valid" asp-validation-summary="ModelOnly"></div>
 
-        <button type="submit">Жүйеге кіру</button>
-        <a href="/Account/ForgotPassword" style="background-color:darksalmon">Пароль ұмытып калдым</a>
+        <button type="submit" style="font-size:20px;">Жүйеге кіру</button>
+        <a href="/Account/ForgotPassword" style="background-color:darksalmon">Парольді ұмыттым</a>
     </form>
     <div class="vhod">
         <h2>B:USTAZ жүйесіне тіркелу</h2>
-        <p>Жалғастыру үшін жүйеге тіркелу міндетті(логин және құпиясөзге ие болу). Бұл тегін.</p>
-        <a href="/Account/Register">Тіркелу</a>
+        <p>Жалғастыру үшін жүйеге тіркелу міндетті.</p>
+        <a href="/Account/Register" style="font-size:20px;">Тіркелу</a>
     </div>
 </div>
+
+
+
+<script src="~/js/jquery.maskedinput.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#phone').mask('+7 (999) 999 99 99')
+    })
+</script>

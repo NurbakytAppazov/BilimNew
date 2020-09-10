@@ -1,10 +1,15 @@
 ﻿@model Bilim.DbFolder.Kurs
-@{
-    ViewData["Title"] = "Kurs";
-    int counter = 0;
-}
+
+@{ ViewData["Title"] = "Kurs";
+    int counter = 0; }
 
 <link href="~/css/courseView.css" rel="stylesheet">
+
+
+@*<link href="~/css/index.css" rel="stylesheet">*@
+
+
+
 
 <div class="swipe-menu">
     <div class="close">
@@ -21,15 +26,15 @@
 </div>
 <div class="header">
     <div class="go-back">
-        <i class="fa fa-arrow-left"  style="color:white!important;"></i>
-        <a class="go-back" href="/Home/Visitor#courses"  style="color:white!important;">Курстар</a>
+        <i class="fa fa-arrow-left" style="color:white!important;"></i>
+        <a class="go-back" href="/Home/Visitor#courses" style="color:white!important;">Курстар</a>
         <!-- <img src="img/logo.png" alt="BeautyOnline"> -->
         <!-- Beauty Online -->
     </div>
     <div class="nav">
-        <a href="#" class="main-nav fix-active" >Басты бет</a>
-        <a href="#" class="teacher-nav"  style="color:white!important;">Спикер жайлы</a>
-        <a href="#" class="about-nav"  style="color:white!important;">Курс жайлы</a>
+        <a href="#" class="main-nav fix-active">Басты бет</a>
+        <a href="#" class="teacher-nav" style="color:white!important;">Спикер жайлы</a>
+        <a href="#" class="about-nav" style="color:white!important;">Курс жайлы</a>
         @*<a href="#" class="packages-nav">Пакеттер</a>*@
     </div>
     <a href="/Account/Profil" class="login">
@@ -44,9 +49,9 @@
 <div class="content">
     <div id="main" class="main" style="background-image: url('/kurs/@Model.PhotoUrl')">
         <div class="main-text">
-            <h2  style="color:white!important;">@Model.Name</h2>
-            <p  style="color:white!important;">@Model.Info</p>
-            <a href="#" class="btn buy-btn"  style="color:white!important;">Сатып алу</a>
+            <h2 style="color:white!important;">@Model.Name</h2>
+            <p style="color:white!important;">@Model.Info</p>
+            <a href="#" class="btn buy-btn" style="color:white!important;">Сатып алу</a>
         </div>
         @*<div class="main-bg" style="background-image: url(/img/kurs-about.png);"></div>*@
     </div>
@@ -57,8 +62,8 @@
         <div class="modal-window">
             <div class="modal-section">
                 <div class="close-mod"><span></span></div>
-                <p  style="color:black!important;">Бұл курсты сатып алу үшін WhatsApp нөмеріне жазыңыз.</p>
-                <a href="https://wa.me/77056644647"  style="color:vlack!important;" class="submit">Жазу</a>
+                <p style="color:black!important;">Бұл курсты сатып алу үшін WhatsApp нөмеріне жазыңыз.</p>
+                <a href="https://wa.me/77056644647" style="color:black!important;" class="submit">Жазу</a>
             </div>
         </div>
     </div>
@@ -66,33 +71,86 @@
 
     @if (ViewBag.FreeVideos != null)
     {
-        <div id="courses" class="courses">
-            <h2  style="color: #2d76fa;">Тегін видео-сабақтар</h2>
-            <div class="course-items">
-                @foreach (var c in ViewBag.FreeVideos)
-                {
-                    <div class="course-item">
-                        <div class="course-img">
-                            <img src="/kursvideo/@c.PhotoUrl">
-                        </div>
-                        <div class="course-text">
-                            <h2>@c.VideoName</h2>
-                            <a href="/Home/Kurs">Көру</a>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    }
+<div id="courses" class="courses">
+    <h2 style="color: #2d76fa;">Тегін видео-сабақтар</h2>
+    <div class="course-items">
+        @foreach (var c in ViewBag.FreeVideos)
+        {
+<div class="course-item">
+    <div class="course-img">
+        <img src="/kursvideo/@c.PhotoUrl">
+    </div>
+    <div class="course-text">
+        <h2>@c.VideoName</h2>
+        <a href="/Account/Video/@Model.Id?videoId=@c.Id">Көру</a>
+    </div>
+</div>}
+
+    </div>
+
+    <div style="padding-bottom:25px;">
+        <a style="text-align: center; border-radius: 30px; padding: 15px 25px 15px 25px; color: white; background-color: chocolate;">Барлық сабақтар тізімі</a>
+
+    </div>
+</div>}
+
+
+
+
+
+
     <div id="teacher" class="teacher">
         <div class="teacher-img">
             <img src="/kurs/@Model.AvtorImgUrl">
         </div>
         <div class="teacher-text">
-            <h2 style="color: black;">@Model.AvtorName</h2>
-            <p style="color: #2d76fa;">@Model.AvtorInfo</p>
+
+            <div class="about-text">
+                <h2>Самые сильные преподаватели</h2>
+                <div class="about-item">
+                    <span class="check-img">
+                        <img src="~/visit/check-about.png" />
+                    </span>
+                    <div class="about-item-text">
+                        <h3>Кәсіби біліктілікті арттыру палтформасы</h3>
+                        <p>
+                            Төменгі, орта және жоғары мектеп ұстаздарының замануи оқуыту әдістері мен жаңа технологиялық құралдарды үйрену.
+                        </p>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <span class="check-img">
+                        <img src="~/visit/check-about.png" />
+                    </span>
+                    <div class="about-item-text">
+                        <h3>Қазақ тіліндегі сапалы онлайн курстар</h3>
+                        <p>
+                            Қазақ тіліндегі сапалы онлайн курсыңызды таңдап кез-келген уақытта шеберлігіңізді арттырыңыз
+                        </p>
+                    </div>
+                </div>
+                <div class="about-item">
+                    <span class="check-img">
+                        <img src="~/visit/check-about.png" />
+                    </span>
+                    <div class="about-item-text">
+                        <h3>Қосымша табыс табу мүмкіндігі</h3>
+                        <p>
+                            Біздің онлайн платформамызда өзіңіздің құнды тәжірибеңізбен бөлісіп, 400000 теңгеге дейін қосымша табыс табыңыз.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
+
+
+
+
+
+
+
 
     <div id="about" class="about">
         <div class="about-course">
@@ -161,13 +219,18 @@
             </div>
         </div>
         <div class="subject">
-            <h2>Курс тақырыптары<span></span><p></p></h2>
+            <h2>Курс тақырыптары<span></span></h2>
             <ul>
                 @foreach (var v in ViewBag.Videos)
                 {
                     counter++;
-                    <li>@counter. @v.VideoName</li>
-                }
+    <li>@counter. @v.VideoName | @{if (v.Free == true) { <span style="color:green;">Тегін</span> }
+        else
+        {
+            <span style="color:red;">ақылы</span>
+        }
+    }</li>
+}
             </ul>
         </div>
     </div>

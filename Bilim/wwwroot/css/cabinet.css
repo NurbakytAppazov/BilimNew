@@ -23,7 +23,7 @@
 }
 .course-item {
     width: 32%;
-    border-radius: 2px;
+    border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 0 20px var(--grey-color);
     margin-bottom: 20px;
@@ -86,7 +86,7 @@
    text-align: center;
    margin: 10px 0;
    margin-bottom: 0;
-   border-radius: 2px;
+   border-radius: 33px;
    border: 1px solid var(--brown-color);
    box-shadow: 0 0 10px var(--grey-color);
    transition: 0.3s;

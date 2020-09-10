@@ -238,7 +238,7 @@ namespace Bilim.Controllers
                 };
             }
 
-            kurs.CreatDate = DateTime.Now;
+            kurs.CreatDate = DateTime.Now.AddDays(10);
             kurs.BannerUrl = DateTime.Now.ToString("MMddHHmmss") + files[0].FileName;
             kurs.PhotoUrl = DateTime.Now.ToString("MMddHHmmss") + files[1].FileName;
             kurs.AvtorImgUrl = DateTime.Now.ToString("MMddHHmmss") + files[2].FileName;
