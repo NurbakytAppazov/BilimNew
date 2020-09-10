@@ -43,7 +43,7 @@ namespace Bilim.Controllers
         {
             model.PhoneNumber =
                 model.PhoneNumber.Replace(" ", "")
-                .Replace("(", "").Replace(")", "");
+                .Replace("(", "").Replace(")", "").Replace("+", "");
 
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Bilim.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
-            string str = model.PhoneNumber.Replace(" ", "").Replace("(", "").Replace(")", "");
+            string str = model.PhoneNumber.Replace(" ", "").Replace("(", "").Replace(")", "").Replace("+","");
             model.PhoneNumber = str;
 
             if (ModelState.IsValid)
@@ -201,8 +201,8 @@ namespace Bilim.Controllers
             return View();
         }
 
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
             if (ModelState.IsValid)
@@ -210,32 +210,85 @@ namespace Bilim.Controllers
                 var user = await _userManager.FindByEmailAsync(model.Email);
                 if (user == null)
                 {
-                    // пользователь с данным email может отсутствовать в бд
-                    // тем не менее мы выводим стандартное сообщение, чтобы скрыть 
-                    // наличие или отсутствие пользователя в бд
                     return View("Login");
                 }
 
-                var code = await _userManager.GeneratePasswordResetTokenAsync(user);
-                var callbackUrl = Url.Action("ResetPassword", "Account",
-                    new { userId = user.Id, code }, protocol: HttpContext.Request.Scheme);
+                Random ran = new Random();
+                int co = ran.Next(11111, 99999);
 
+                    var _passwordValidator = HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
+                    var _passwordHasher = HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
+
+                    IdentityResult result = await _passwordValidator.ValidateAsync(_userManager, user, co.ToString());
+
+                    if (result.Succeeded)
+                    {
+                        user.PasswordHash = _passwordHasher.HashPassword(user, co.ToString());
+                        await _userManager.UpdateAsync(user);
+                    }
+
+                
                 EmailService emailService = new EmailService();
 
-                try
-                {
-                    await emailService.SendEmailAsync(model.Email, "Reset Password",
-                        $"Для сброса пароля пройдите по ссылке: <a href='{callbackUrl}'>link</a>");
-                    return View("ForgotPasswordConfirm");
-                }
-                catch (Exception err)
-                {
-                    return Content("err: " + err);
-                }
+                await emailService.SendEmailAsync(model.Email, "Reset Password",$"Сіздің жаңа парольіңіз: <p style='font-size:20px;'><b>{co}</b></p>");
+                
+                return RedirectToAction("Login");
+                
 
             }
             return View(model);
         }
+
+
+
+        public IActionResult Reset(string code)
+        {
+            var dan = db.Codes.Where(p => p.code == Convert.ToInt32(code)).FirstOrDefault();
+
+            if(dan != null)
+            {
+                ResetPasswordViewModel model = new ResetPasswordViewModel { Email = dan.User.FirstName + dan.User.LastName  };
+
+                return View(model);
+            }
+
+            return RedirectToAction("Login");
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Reset(ResetPasswordViewModel model)
+        {
+            var user = await _userManager.FindByEmailAsync(model.Email);
+
+            if(user != null)
+            {
+                var _passwordValidator =
+                HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
+                var _passwordHasher =
+                    HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
+
+                IdentityResult result =
+                    await _passwordValidator.ValidateAsync(_userManager, user, model.Password);
+                if (result.Succeeded)
+                {
+                    user.PasswordHash = _passwordHasher.HashPassword(user, model.Password);
+                    await _userManager.UpdateAsync(user);
+
+                    var result2 = await _signInManager.PasswordSignInAsync(user.PhoneNumber, model.Password, true, false);
+                    if (result.Succeeded)
+                    {
+                       return RedirectToAction("Profil", "Account");
+                    }
+
+                }
+            }
+            return RedirectToAction("Login");
+            
+        }
+
+
+
         [HttpGet]
         public IActionResult ForgotPasswordConfirm()
         {

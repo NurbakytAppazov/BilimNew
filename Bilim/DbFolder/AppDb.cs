@@ -25,5 +25,9 @@ namespace Bilim.DbFolder
         public DbSet<Category> Categories { get; set; }
         public DbSet<Category2> Categories2 { get; set; }
         public DbSet<Category3> Categories3 { get; set; }
+
+
+
+        public DbSet<Code> Codes { get; set; }
     }
 }
