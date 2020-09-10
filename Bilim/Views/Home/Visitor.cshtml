@@ -14,7 +14,7 @@
     <a href="#" class="main-nav fix-active">Басты бет</a>
     <a href="#" class="about-nav">Біз жайлы</a>
     <a href="#" class="course-nav">Курстар</a>
-    <a href="#" class="more-nav">Контакты</a>
+    <a href="#" class="contact-nav">Контакты</a>
     <a href="/Account/Profil" class="swipe-login">
         <span>Жеке кабинет</span>
         <i class="fa fa-user-o"></i>
@@ -29,7 +29,7 @@
         <a href="#" class="main-nav fix-active" style="color:white!important;">Басты бет</a>
         <a href="#" class="about-nav" style="color:white!important;">Біз жайлы</a>
         <a href="#" class="course-nav" style="color:white!important;">Курстар</a>
-        <a href="#" class="more-nav" style="color:white!important;">Контакты</a>
+        <a href="#" class="contact-nav" style="color:white!important;">Контакты</a>
     </div>
     <a href="/Account/Profil" class="login" >
         <span style="color:white!important;">Жеке кабинет</span>
@@ -55,7 +55,7 @@
                     <img src="~/visit/check-about.png" />
                 </span>
                 <div class="about-item-text">
-                    <h3>Кәсіби біліктілікті арттыру палтформасы</h3>
+                    <h3>Кәсіби біліктілікті арттыру платформасы</h3>
                     <p>
                         Төменгі, орта және жоғары мектеп ұстаздарының замануи оқуыту әдістері мен жаңа технологиялық құралдарды үйрену.
                     </p>
@@ -167,30 +167,26 @@
         <div class="course-items">
             @foreach (var c in Model)
             {
-                @*x++;
-                if (x < 7)
-                {*@
-                    <div class="course-item">
-                        <div class="course-img">
-                            <img src="~/kurs/@c.BannerUrl">
-                        </div>
-                        <div class="course-text">
-                            <h2>@c.Name</h2>
-                            <p><i class="fa fa-user"></i>@c.AvtorName</p>
-                            @*<span>@c.Info</span>*@
-                            @*<span class="isfree isfree-green">
-                                    <i class="fa fa-unlock"></i>
-                                    Тегін курс
-                                </span>*@
-
-                            @*<span class="isfree isfree-red">
-                                <i class="fa fa-lock"></i>
-                                Ақылы курс
-                            </span>*@
-                            <a href="/Home/Kurs/@c.Id">Курс жайлы толығырақ</a>
-                        </div>
+                <div class="course-item">
+                    <div class="course-img">
+                        <img src="~/kurs/@c.BannerUrl">
                     </div>
-                @*}*@
+                    <div class="course-text">
+                        <h2>@c.Name</h2>
+                        <p><i class="fa fa-user"></i>@c.AvtorName</p>
+                        @*<span>@c.Info</span>*@
+                        @*<span class="isfree isfree-green">
+                                <i class="fa fa-unlock"></i>
+                                Тегін курс
+                            </span>*@
+
+                        @*<span class="isfree isfree-red">
+                            <i class="fa fa-lock"></i>
+                            Ақылы курс
+                        </span>*@
+                        <a href="/Home/Kurs/@c.Id">Курс жайлы толығырақ</a>
+                    </div>
+                </div>
             }
             
         </div>

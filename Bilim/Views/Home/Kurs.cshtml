@@ -18,7 +18,6 @@
     <a href="#" class="main-nav fix-active">Басты бет</a>
     <a href="#" class="teacher-nav">Спикер жайлы</a>
     <a href="#" class="about-nav">Курс жайлы</a>
-    @*<a href="#" class="packages-nav">Пакеттер</a>*@
     <a href="/Account/Profil" class="swipe-login">
         <span>Жеке кабинет</span>
         <i class="fa fa-user-o"></i>
@@ -28,19 +27,15 @@
     <div class="go-back">
         <i class="fa fa-arrow-left" style="color:white!important;"></i>
         <a class="go-back" href="/Home/Visitor#courses" style="color:white!important;">Курстар</a>
-        <!-- <img src="img/logo.png" alt="BeautyOnline"> -->
-        <!-- Beauty Online -->
     </div>
     <div class="nav">
         <a href="#" class="main-nav fix-active">Басты бет</a>
         <a href="#" class="teacher-nav" style="color:white!important;">Спикер жайлы</a>
         <a href="#" class="about-nav" style="color:white!important;">Курс жайлы</a>
-        @*<a href="#" class="packages-nav">Пакеттер</a>*@
     </div>
     <a href="/Account/Profil" class="login">
         <span>Жеке кабинет</span>
         <i class="fa fa-user-o"></i>
-        <!-- <a href="#">Кіру / Тіркелу</a> -->
     </a>
     <div class="burger">
         <span></span>
@@ -53,7 +48,6 @@
             <p style="color:white!important;">@Model.Info</p>
             <a href="#" class="btn buy-btn" style="color:white!important;">Сатып алу</a>
         </div>
-        @*<div class="main-bg" style="background-image: url(/img/kurs-about.png);"></div>*@
     </div>
 
     @* MODAL *@
@@ -71,32 +65,27 @@
 
     @if (ViewBag.FreeVideos != null)
     {
-<div id="courses" class="courses">
-    <h2 style="color: #2d76fa;">Тегін видео-сабақтар</h2>
-    <div class="course-items">
-        @foreach (var c in ViewBag.FreeVideos)
-        {
-<div class="course-item">
-    <div class="course-img">
-        <img src="/kursvideo/@c.PhotoUrl">
-    </div>
-    <div class="course-text">
-        <h2>@c.VideoName</h2>
-        <a href="/Account/Video/@Model.Id?videoId=@c.Id">Көру</a>
-    </div>
-</div>}
-
-    </div>
-
-    <div style="padding-bottom:25px;">
-        <a style="text-align: center; border-radius: 30px; padding: 15px 25px 15px 25px; color: white; background-color: chocolate;">Барлық сабақтар тізімі</a>
-
-    </div>
-</div>}
-
-
-
-
+        <div id="courses" class="courses">
+            <h2 style="color: #2d76fa;">Тегін видео-сабақтар</h2>
+            <div class="course-items">
+                @foreach (var c in ViewBag.FreeVideos)
+                {
+                    <div class="course-item">
+                        <div class="course-img">
+                            <img src="/kursvideo/@c.PhotoUrl">
+                        </div>
+                        <div class="course-text">
+                            <h2>@c.VideoName</h2>
+                            <a href="/Account/Video/@Model.Id?videoId=@c.Id">Көру</a>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div style="padding-bottom:25px;">
+                <a style="text-align: center; border-radius: 30px; padding: 15px 25px; color: white; background-color: chocolate;">Барлық сабақтар тізімі</a>
+            </div>
+        </div>
+    }
 
 
     <div id="teacher" class="teacher">
@@ -147,11 +136,6 @@
 
 
 
-
-
-
-
-
     <div id="about" class="about">
         <div class="about-course">
             <div class="course-block">
@@ -160,10 +144,6 @@
                 </div>
                 <h2 style="color: black">КУРС КІМДЕРГЕ АРНАЛАДЫ?</h2>
                 <ul>
-                    @*<li>15 минутта өзін бояндырып үйренгісі келетін кез-келген қыз-келіншектерге;</li>
-                        <li>Кез-келген жаста әдемі болып, бет күтіміне ерекше мән беретін жандарға;</li>
-                        <li>Салонға жиі ақша құртпау үшін, техникалары мен оңай жолын үйренгісі келетін әйел адамдарға арналады.</li>
-                        <li>Салонға жиі ақша құртпау үшін, техникалары мен оңай жолын үйренгісі келетін әйел адамдарға арналады.</li>*@
                     <li>@Model.Kimge1</li>
                     <li>@Model.Kimge2</li>
                     <li>@Model.Kimge3</li>
@@ -177,10 +157,10 @@
                 </div>
                 <h2 style="color: black">КУРС ҚАЛАЙ ӨТЕДІ?</h2>
                 <ul>
-                    <li>	Курсты сатып алған соң, мұғалімнің жеке профилі ашылады. </li>
-                    <li>	Қажет болған жағдайда Телеграмдағы мұғаліммен сұрақ-жауап чатына қосылып, сұрақтарға жауап алуға болады</li>
-                    <li>	Сатып алған курстың видеосабақтарын кез-келген уақытта көріп, тапсырмаларды орындай алады.</li>
-                    <li>	Курсты аяқтаған соң емтихан тапсырып, сертифкат беріледі.</li>
+                    <li>Курсты сатып алған соң, мұғалімнің жеке профилі ашылады. </li>
+                    <li>Қажет болған жағдайда Телеграмдағы мұғаліммен сұрақ-жауап чатына қосылып, сұрақтарға жауап алуға болады</li>
+                    <li>Сатып алған курстың видеосабақтарын кез-келген уақытта көріп, тапсырмаларды орындай алады.</li>
+                    <li>Курсты аяқтаған соң емтихан тапсырып, сертифкат беріледі.</li>
                 </ul>
             </div>
         </div>
@@ -192,29 +172,18 @@
                         <img src="~/img/check-icon.png">
                     </div>
                     <p>@Model.What1</p>
-                    @*<p>
-                            Узнаете все о самых актуальных и востребованных техниках в
-                            макияже и научитесь работать с различными особенностями:
-                            нависшее веко, проблемная кожа, лифтинг макияж
-                        </p>*@
                 </div>
                 <div class="learn-block">
                     <div class="img-block">
                         <img src="~/img/check-icon.png">
                     </div>
                     <p>@Model.What2</p>
-                    @*<p>
-                            Благодаря обширному блоку самой актуальной теоретической
-                            информации научитесь на профессиональном уровне разбираться
-                            в многообразии косметических продуктов
-                        </p>*@
                 </div>
                 <div class="learn-block">
                     <div class="img-block">
                         <img src="~/img/check-icon.png">
                     </div>
                     <p>@Model.What3</p>
-                    @*<p>Приобретете новую профессию и расширите до максимума свои знания и навыки в мире макияжа</p>*@
                 </div>
             </div>
         </div>
@@ -224,108 +193,18 @@
                 @foreach (var v in ViewBag.Videos)
                 {
                     counter++;
-    <li>@counter. @v.VideoName | @{if (v.Free == true) { <span style="color:green;">Тегін</span> }
-        else
-        {
-            <span style="color:red;">ақылы</span>
-        }
-    }</li>
-}
+                    <li>
+                        @counter. @v.VideoName | @if (v.Free == true)
+                        { <span style="color:green;">Тегін</span> }
+                        else
+                        {
+                            <span style="color:red;">ақылы</span>
+                        }
+                    </li>
+                }
             </ul>
         </div>
     </div>
-
-    @*<div class="packages">
-            <h1>Варианты обучения</h1>
-            <div class="packs">
-                <div class="pack">
-                    <div class="pack-head">
-                        <h3>Пакет «Selfmade»</h3>
-                        <p>для тех, кто хочет обучиться самостоятельно</p>
-                    </div>
-                    <div class="pack-body">
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Учебные материалы в формате видеоуроков FullHD</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Личный кабинет с постоянным доступом к материалам обучения</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Раздаточный материал со списком косметики и инструментами</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Рабочая тетрадь для конспектирования и записей</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Возможность занятий в любое удобное время и месте</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Выдача сертификата после завершения обучения</span>
-                        </p>
-                    </div>
-                    <div class="pack-price">
-                        <span class="old-price">6 990 тг</span>
-                        <span class="new-price">4 490 тг</span>
-                    </div>
-                    <a class="start-btn" href="#">Бастау</a>
-                    <p class="sale-text">действует скидка 30% до 12 июля</p>
-                </div>
-                <div class="pack">
-                    <div class="pack-head">
-                        <h3>Пакет «Хочу Результат!»</h3>
-                        <p>с ежедневной поддержкой куратора</p>
-                    </div>
-                    <div class="pack-body">
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Учебные материалы в формате видеоуроков FullHD</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Личный кабинет с постоянным доступом к материалам обучения</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Раздаточный материал со списком косметики и инструментами</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Рабочая тетрадь для конспектирования и записей</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Возможность занятий в любое удобное время и месте</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-check"></i>
-                            <span>Выдача сертификата после завершения обучения</span>
-                        </p>
-                    </div>
-                    <div class="plus-body">
-                        <p>
-                            <i class="fa fa-plus"></i>
-                            <span>Индивидуальная поддержка куратора до результата</span>
-                        </p>
-                        <p>
-                            <i class="fa fa-plus"></i>
-                            <span>Уникальные условия для обучения в других курсах</span>
-                        </p>
-                    </div>
-                    <div class="pack-price">
-                        <span class="old-price">8 990 тг</span>
-                        <span class="new-price">5 990 тг</span>
-                    </div>
-                    <a class="start-btn" href="#">Бастау</a>
-                    <p class="sale-text">действует скидка 30% до 12 июля</p>
-                </div>
-            </div>
-        </div>*@
 </div>
 
 <script src="~/js/visitor.js"></script>

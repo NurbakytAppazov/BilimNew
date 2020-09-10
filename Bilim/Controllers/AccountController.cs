@@ -41,6 +41,10 @@ namespace Bilim.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            model.PhoneNumber =
+                model.PhoneNumber.Replace(" ", "")
+                .Replace("(", "").Replace(")", "");
+
             if (ModelState.IsValid)
             {
                 User user = new User { UserName = model.PhoneNumber, Email = model.Email, FirstName = model.FirstName, LastName = model.LastName, PhoneNumber = model.PhoneNumber };
@@ -72,7 +76,6 @@ namespace Bilim.Controllers
                 if (User.IsInRole("Admin"))
                 {
                     return RedirectToAction("UserList", "Admin");
-                    //return RedirectToAction("UserList", "Admin", new { page = 1 });
                 }
                 else
                 {
@@ -87,13 +90,15 @@ namespace Bilim.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
+            string str = model.PhoneNumber.Replace(" ", "").Replace("(", "").Replace(")", "");
+            model.PhoneNumber = str;
+
             if (ModelState.IsValid)
             {
                 var result =
                     await _signInManager.PasswordSignInAsync(model.PhoneNumber, model.Password, model.RememberMe, false);
                 if (result.Succeeded)
                 {
-                    var user = await _userManager.FindByNameAsync(model.PhoneNumber);
                     // проверяем, принадлежит ли URL приложению
                     if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
@@ -159,24 +164,22 @@ namespace Bilim.Controllers
                 ViewBag.Status = 2;
             }
 
-                    
+            var kurs = await db.Kurs.FirstOrDefaultAsync(x => x.Id == id);
+            KursVideo video;
+            List<KursVideo> otherVideos;
+            if (videoId == 0)
+            {
+                video = await db.KursVideos.FirstOrDefaultAsync(x => x.KursId == kurs.Id);
+                otherVideos = await db.KursVideos.Where(x => x.Id != video.Id && x.KursId == id).Include(p => p.Kurs).ToListAsync();
+            }
+            else
+            {
+                video = await db.KursVideos.FirstOrDefaultAsync(x => x.Id == videoId && x.KursId == kurs.Id);
+                otherVideos = await db.KursVideos.Where(x => x.Id != videoId && x.KursId == id).Include(p => p.Kurs).ToListAsync();
+            }
+            ViewBag.OtherVideos = otherVideos;
 
-                    var kurs = await db.Kurs.FirstOrDefaultAsync(x => x.Id == id);
-                    KursVideo video;
-                    List<KursVideo> otherVideos;
-                    if (videoId == 0)
-                    {
-                        video = await db.KursVideos.FirstOrDefaultAsync(x => x.KursId == kurs.Id);
-                        otherVideos = await db.KursVideos.Where(x => x.Id != video.Id && x.KursId == id).Include(p => p.Kurs).ToListAsync();
-                    }
-                    else
-                    {
-                        video = await db.KursVideos.FirstOrDefaultAsync(x => x.Id == videoId && x.KursId == kurs.Id);
-                        otherVideos = await db.KursVideos.Where(x => x.Id != videoId && x.KursId == id).Include(p => p.Kurs).ToListAsync();
-                    }
-                    ViewBag.OtherVideos = otherVideos;
-
-                    return View(video);
+            return View(video);
            
         }
 
