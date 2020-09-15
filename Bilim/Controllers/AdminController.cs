@@ -339,11 +339,11 @@ namespace Bilim.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddVideo(int kursId, string VideoName, string Info, string VideoUrl, IFormFile PhotoUrl, bool Free)
+        public async Task<IActionResult> AddVideo(int kursId, string VideoName, string Info, string VideoUrl, IFormFile PhotoUrl, bool Free, string WorkUrl)
         {
             if(kursId != 0)
             {
-                KursVideo kv = new KursVideo { KursId = kursId, VideoName = VideoName, Info = Info, VideoUrl = VideoUrl };
+                KursVideo kv = new KursVideo { KursId = kursId, VideoName = VideoName, Info = Info, VideoUrl = VideoUrl, WorkUrl = WorkUrl };
 
                 if(Free == true)
                 {
@@ -414,6 +414,7 @@ namespace Bilim.Controllers
                 thisVideo.VideoUrl = video.VideoUrl;
                 thisVideo.PhotoUrl = video.PhotoUrl;
                 thisVideo.KursId = (int)kursId;
+                thisVideo.WorkUrl = video.WorkUrl;
 
                 await db.SaveChangesAsync();
 

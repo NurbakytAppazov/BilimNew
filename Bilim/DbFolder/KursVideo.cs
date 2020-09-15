@@ -11,6 +11,8 @@ namespace Bilim.DbFolder
         public string PhotoUrl { get; set; }
         public bool Free { get; set; } = false;
 
+        public string WorkUrl { get; set; }
+
         public int KursId { get; set; }
         public Kurs Kurs { get; set; }
     }
